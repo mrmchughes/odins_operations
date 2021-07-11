@@ -1,0 +1,225 @@
+:root {
+  --red: #d80000;
+  --black: #161616;
+  --violet: #5B3758;
+  --gray: #C2B2B4;
+  --white: #D8D8D8;
+  --top: #CC9543;
+  --gameHeight: 768px;
+  --gameWidth: 1024px;
+}
+
+html, body {
+  background-color: var(--black);
+  color: var(--white);
+  width:100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+body {
+  display: flex;
+  flex-direction: vertical;
+  height: var(--gameHeight);
+  width: var(--gameWidth);
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+label {
+  height: 50px;
+  background-color: var(--gray);
+  border: 2px solid var(--violet);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  color: var(--black);
+}
+
+input[type="radio"] {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+input[type="radio"]:checked + label {
+  background-color: var(--violet);
+  color: var(--white);
+  border: 2px solid var(--gray);
+  border-radius: 5px;
+}
+
+input[type="radio"]:disabled + label {
+  opacity: 60%;
+}
+
+input[type="text"] {
+  height: 25px;
+  background-color: var(--gray);
+  color: var(--black);
+  font-size: 16px;
+  text-align: center;
+  border: 2px solid var(--violet);
+}
+
+input[type="text"]:focus-visible {
+  border: 2px solid var(--red);
+}
+
+input[type="submit"] {
+  height: 50px;
+  background-color: var(--gray);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid var(--violet);
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--violet);
+  color: var(--white);
+  border: 2px solid var(--gray);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-area {
+  border: 3px solid var(--violet);
+  margin: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.main-menu {
+  height: 100%;
+  width: 100%;
+}
+
+.options-form {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  height: 100%;
+}
+
+.game-options-list {
+  margin: 25px;
+}
+
+.game-over {
+  height: 100%;
+  justify-content: space-around;
+  align-content: space-around;
+
+}
+
+.game-play {
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.game-status {
+  height: calc(768px / 6);
+  width: 100%;
+  justify-content: space-between;
+}
+
+.lives-count, .game-score {
+  width: 33%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.lives-count, .game-score h3 {
+  text-decoration: underline;
+}
+
+.game-prompt {
+  width: 33%;
+  text-align: center;
+  text-justify: auto;
+  text-decoration: underline;
+}
+
+.game-row {
+  height: calc(768px / 6);
+  width: 100%;
+  justify-content: space-evenly;
+  z-index: 0;
+  display: flex;
+}
+
+.game-row li {
+  height: 100%;
+  width: calc((1024px / 6) - 2px);
+  border: 1px solid var(--gray);
+  text-align: center;
+  line-height: calc(768px / 6);
+  text-justify: auto;
+}
+
+.player, .enemy {
+  font-size: 48px;
+  z-index: 2;
+  position: relative;
+  height: 0px;
+  width: 0px;
+  align-self: flex-start;
+}
+
+.player {
+  top: 75px;
+  left: 10px;
+  color: var(--violet);
+}
+
+.enemy {
+  top: 75px;
+  left: 1014px;
+  transform: scale(-1, 1);
+  color: var(--red);
+}

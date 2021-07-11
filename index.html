@@ -11,62 +11,63 @@
 </header>
 <body>
   <div class="game-area" id="gameArea">
+
     <div class="main-menu" id="mainMenu">
-      <form>
+      <form class="flex-column flex-center options-form">
         <h2>Select Game Options</h2>
         <h3>User Name</h3>
         <input type="text" id="userName"
                name="userName" value="">
         <h3>Practice Area</h3>
-        <ul>
+        <ul class="flex-row game-options-list">
           <li>
-            <input type="radio" id="multiples" 
+            <input type="radio" id="multiples"
                    name="practiceAreaSelect" value="Multiples">
              <label for="multiples">Multiples</label>
           </li>
           <li>
-            <input type="radio" id="factors" 
-                   name="practiceAreaSelect" value="Factors">
+            <input type="radio" id="factors"
+                   name="practiceAreaSelect" value="Factors" disabled>
              <label for="factors">Factors</label>
           </li>
           <li>
-            <input type="radio" id="primes" 
-                   name="practiceAreaSelect" value="Primes">
+            <input type="radio" id="primes"
+                   name="practiceAreaSelect" value="Primes" disabled>
             <label for="primes">Primes</label>
           </li>
           <li>
-            <input type="radio" id="multiples" 
-                   name="inequalities" value="Inequalities">
+            <input type="radio" id="inequalities"
+                   name="practiceAreaSelect" value="Inequalities" disabled>
             <label for="inequalities">Inequalities</label>
           </li>
           <li>
-            <input type="radio" id="equalities" 
-                   name="practiceAreaSelect" value="Equalities">
+            <input type="radio" id="equalities"
+                   name="practiceAreaSelect" value="Equalities" disabled>
             <label for="equalities">Equalities</label>
           </li>
         </ul>
 
         <h3>Difficulty</h3>
-        <ul>
+        <ul class="flex-row game-options-list">
           <li>
-            <input type="radio" id="beginner" 
+            <input type="radio" id="beginner"
                    name="difficultySelect" value="Beginner">
             <label for="beginner">Beginner</label>
           </li>
           <li>
-            <input type="radio" id="intermediate" 
-                   name="difficultySelect" value="Intermediate">
+            <input type="radio" id="intermediate"
+                   name="difficultySelect" value="Intermediate" disabled>
             <label for="intermediate">Intermediate</label>
           </li>
           <li>
-            <input type="radio" id="advanced" 
-                   name="difficultySelect" value="Advanced">
+            <input type="radio" id="advanced"
+                   name="difficultySelect" value="Advanced" disabled>
             <label for="advanced">Advanced</label>
           </li>
         </ul>
 
         <h3>Lives</h3>
-        <ul>
+        <ul class="flex-row game-options-list">
           <li>
             <input type="radio" id="oneLife" name="livesSelect" value="1">
             <label for="oneLife">
@@ -81,7 +82,7 @@
           </li>
           <li>
             <input type="radio" id="fiveLives" name="livesSelect" value="5">
-            <label for="threeLives">
+            <label for="fiveLives">
               <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i>
             </label>
           </li>
@@ -103,75 +104,81 @@
       </form>
     </div>
 
-    <div class="game-play" id="gamePlay">
-      <div class="game-status">
-        <ul>
+    <div class="flex-center flex-column game-play" id="gamePlay">
+      <div class="flex-center flex-row game-status">
+        <ul class="flex-center flex-column lives-count">
           <li><h3>Lives</h3></li>
-          <li><i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i></li>
+          <li id="livesCount"><i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i> <i class="fas fa-cat"></i></li>
         </ul>
-        <h2>Multiples of 2</h2>
-        <ul><h3>Score</h3></ul>
-        <ul>100456</ul>
+        <h2 class="game-prompt" id="gamePrompt">Multiples of 2</h2>
+        <ul class="flex-center flex-column game-score">
+          <li><h3>Score</h3></li>
+          <li id="gameScore"><h4>100456</h4></li>
+        </ul>
       </div>
-      <ul class="game-row" id="row-5">
-        <li id="cell-5-1">34</li>
-        <li id="cell-5-2">55</li>
-        <li id="cell-5-3"></li>
-        <li id="cell-5-4">11</li>
-        <li id="cell-5-5"></li>
-        <li id="cell-5-6">34</li>
-      </ul>
-      <ul class="game-row" id="row-4">
-        <li id="cell-4-1">123</li>
-        <li id="cell-4-2"></li>
-        <li id="cell-4-3"></li>
-        <li id="cell-4-4">33</li>
-        <li id="cell-4-5"></li>
-        <li id="cell-4-6">1234</li>
-      </ul>
-      <ul class="game-row" id="row-3">
-        <li id="cell-3-1"></li>
-        <li id="cell-3-2">51</li>
-        <li id="cell-3-3"></li>
-        <li id="cell-3-4">1234</li>
-        <li id="cell-3-5"></li>
-        <li id="cell-3-6">551</li>
-      </ul>
-      <ul class="game-row" id="row-2">
-        <li id="cell-2-1">1231</li>
-        <li id="cell-2-2"></li>
-        <li id="cell-2-3">123</li>
-        <li id="cell-2-4"></li>
-        <li id="cell-2-5"></li>
-        <li id="cell-2-6">511</li>
-      </ul>
-      <ul class="game-row" id="row-1">
-        <li id="cell-1-1">123</li>
-        <li id="cell-1-2">12</li>
-        <li id="cell-1-3"></li>
-        <li id="cell-1-4"></li>
-        <li id="cell-1-5">1</li>
-        <li id="cell-1-6">4</li>
-      </ul>
+      <div class="player" id="player"><i class="fas fa-cat"></i></div>
+      <div class="enemy" id="enemy"><i class="fas fa-dog"></i></div>
+      <div class="flex-center flex-column game-board">
+        <ul class="flex-center flex-row game-row" id="row-5">
+          <li id="cell-5-1">34</li>
+          <li id="cell-5-2">55</li>
+          <li id="cell-5-3"></li>
+          <li id="cell-5-4">11</li>
+          <li id="cell-5-5"></li>
+          <li id="cell-5-6">34</li>
+        </ul>
+        <ul class="flex-center flex-row game-row" id="row-4">
+          <li id="cell-4-1">123</li>
+          <li id="cell-4-2"></li>
+          <li id="cell-4-3"></li>
+          <li id="cell-4-4">33</li>
+          <li id="cell-4-5"></li>
+          <li id="cell-4-6">1234</li>
+        </ul>
+        <ul class="flex-center flex-row game-row" id="row-3">
+          <li id="cell-3-1"></li>
+          <li id="cell-3-2">51</li>
+          <li id="cell-3-3"></li>
+          <li id="cell-3-4">1234</li>
+          <li id="cell-3-5"></li>
+          <li id="cell-3-6">551</li>
+        </ul>
+        <ul class="flex-center flex-row game-row" id="row-2">
+          <li id="cell-2-1">1231</li>
+          <li id="cell-2-2"></li>
+          <li id="cell-2-3">123</li>
+          <li id="cell-2-4"></li>
+          <li id="cell-2-5"></li>
+          <li id="cell-2-6">511</li>
+        </ul>
+        <ul class="flex-center flex-row game-row" id="row-1">
+          <li id="cell-1-1">123</li>
+          <li id="cell-1-2">12</li>
+          <li id="cell-1-3"></li>
+          <li id="cell-1-4"></li>
+          <li id="cell-1-5">1</li>
+          <li id="cell-1-6">4</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="high-scores" id="highScores">
-      <div class="high-score-controls" id="highScoreControls">
-        <ul>
+   <div class="high-scores" id="highScores">
+      <div class="flex-row flex-center high-score-controls" id="highScoreControls">
+        <ul class="flex-column flex-center" id="lhsControl">
           <li><i class="fas fa-angle-double-left"></i></li>
-          <li><h3>Beginner</h3></li>
+          <li><h3 id="lhsDifficulty">Beginner</h3></li>
         </ul>
-        <ul>
+        <ul class="flex-column flex-center">
           <li><h2>High Scores</h2></li>
-          <li><h3>Intermediate</h3></li>
+          <li><h3 id="centerDifficulty">Intermediate</h3></li>
         </ul>
-        <ul>
+        <ul class="flex-column flex-center" id="rhsControl">
           <li><i class="fas fa-angle-double-right"></i></li>
-          <li><h3>Advanced</h3></li>
+          <li><h3 id="rhsDifficulty">Advanced</h3></li>
         </ul>
       </div>
-      <div class="high-score-table" id="highScoreTable">
-        <ol>
+      <div class="flex-row flex-center high-score-table" id="highScoreTable">
+        <ol class="flex-column flex-center">
           <li>Name 1</li>
           <li>Name 2</li>
           <li>Name 3</li>
@@ -183,7 +190,7 @@
           <li>Name 9</li>
           <li>Name 10</li>
         </ol>
-        <ul>
+        <ul class="flex-column flex-center">
           <li>10000</li>
           <li>9000</li>
           <li>8000</li>
@@ -198,13 +205,15 @@
       </div>
     </div>
 
-    <div class="game-over" id="gameOver">
+    <div class="flex-column flex-center game-over" id="gameOver">
       <h2>Game Over</h2>
       <h3>Score:</h3>
       <h4>5000</h4>
       <h2>Great Job!</h2>
-      <button>Play Again!</button>
-      <button>Back to Settings</button>
+      <div class="flex-row flex-center">
+        <button>Back to Settings</button>
+        <button>Play Again!</button>
+      </div>
     </div>
 
   </div>
