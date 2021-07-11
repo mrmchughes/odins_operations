@@ -17,32 +17,32 @@
         <h2>Select Game Options</h2>
         <h3>User Name</h3>
         <input type="text" id="userName"
-               name="userName" value="">
+              name="userName" value="">
         <h3>Practice Area</h3>
         <ul class="flex-row game-options-list">
           <li>
             <input type="radio" id="multiples"
-                   name="practiceAreaSelect" value="Multiples">
-             <label for="multiples">Multiples</label>
+                  name="practiceAreaSelect" value="Multiples">
+            <label for="multiples">Multiples</label>
           </li>
           <li>
             <input type="radio" id="factors"
-                   name="practiceAreaSelect" value="Factors" disabled>
-             <label for="factors">Factors</label>
+                  name="practiceAreaSelect" value="Factors" disabled>
+            <label for="factors">Factors</label>
           </li>
           <li>
             <input type="radio" id="primes"
-                   name="practiceAreaSelect" value="Primes" disabled>
+                  name="practiceAreaSelect" value="Primes" disabled>
             <label for="primes">Primes</label>
           </li>
           <li>
             <input type="radio" id="inequalities"
-                   name="practiceAreaSelect" value="Inequalities" disabled>
+                  name="practiceAreaSelect" value="Inequalities" disabled>
             <label for="inequalities">Inequalities</label>
           </li>
           <li>
             <input type="radio" id="equalities"
-                   name="practiceAreaSelect" value="Equalities" disabled>
+                  name="practiceAreaSelect" value="Equalities" disabled>
             <label for="equalities">Equalities</label>
           </li>
         </ul>
@@ -51,17 +51,17 @@
         <ul class="flex-row game-options-list">
           <li>
             <input type="radio" id="beginner"
-                   name="difficultySelect" value="Beginner">
+                  name="difficultySelect" value="Beginner">
             <label for="beginner">Beginner</label>
           </li>
           <li>
             <input type="radio" id="intermediate"
-                   name="difficultySelect" value="Intermediate" disabled>
+                  name="difficultySelect" value="Intermediate" disabled>
             <label for="intermediate">Intermediate</label>
           </li>
           <li>
             <input type="radio" id="advanced"
-                   name="difficultySelect" value="Advanced" disabled>
+                  name="difficultySelect" value="Advanced" disabled>
             <label for="advanced">Advanced</label>
           </li>
         </ul>
@@ -162,7 +162,7 @@
       </div>
     </div>
 
-   <div class="high-scores" id="highScores">
+  <div class="high-scores" id="highScores">
       <div class="flex-row flex-center high-score-controls" id="highScoreControls">
         <ul class="flex-column flex-center" id="lhsControl">
           <li><i class="fas fa-angle-double-left"></i></li>
@@ -179,6 +179,7 @@
       </div>
       <div class="flex-row flex-center high-score-table" id="highScoreTable">
         <ol class="flex-column flex-center">
+          <li><h2>Player</h2></li>
           <li>Name 1</li>
           <li>Name 2</li>
           <li>Name 3</li>
@@ -191,6 +192,7 @@
           <li>Name 10</li>
         </ol>
         <ul class="flex-column flex-center">
+          <li><h2>Score</h2></li>
           <li>10000</li>
           <li>9000</li>
           <li>8000</li>
@@ -208,10 +210,10 @@
     <div class="flex-column flex-center game-over" id="gameOver">
       <h2>Game Over</h2>
       <h3>Score:</h3>
-      <h4>5000</h4>
-      <h2>Great Job!</h2>
+      <h4 id="playerScore">5000</h4>
+      <h2 id="encouragingPhrase">Great Job!</h2>
       <div class="flex-row flex-center">
-        <button>Back to Settings</button>
+        <button>Return to Settings</button>
         <button>Play Again!</button>
       </div>
     </div>

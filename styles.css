@@ -223,3 +223,67 @@ input[type="submit"]:hover {
   transform: scale(-1, 1);
   color: var(--red);
 }
+
+.high-scores {
+  width: 100%;
+}
+
+.high-score-controls {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.high-score-table {
+  width: 100%;
+  margin-top: 25px;
+  font-size: 32px;
+  justify-content: space-around;
+}
+
+.high-score-table ol li h2, .high-score-table ul li h2 {
+  text-decoration: underline;
+  margin-bottom: 25px;
+  font-size: 48px;
+}
+
+.high-score-table ol li, .high-score-table ul li {
+  margin-top: 10px;
+}
+
+.game-over h2 {
+  font-size: 48px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.game-over h3 {
+  font-size: 40px;
+}
+
+.game-over h4 {
+  font-size: 128px;
+}
+
+.game-over button {
+  height: 50px;
+  background-color: var(--gray);
+  color: var(--black);
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px solid var(--violet);
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+.game-over button:hover {
+  background-color: var(--violet);
+  color: var(--white);
+  border: 2px solid var(--gray);
+  cursor: pointer;
+}
+
+.game-over div {
+  width: 100%;
+  justify-content: space-around;
+  align-content: space-around;
+}
