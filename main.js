@@ -10,3 +10,4 @@ let titleCard = document.createElement('h2');
 titleCard.innerText = 'Factors of ' + factorsObj.base;
 document.body.appendChild(titleCard);
 gameBoard.drawBoard(factorsObj.factorsArray);
+
