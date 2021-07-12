@@ -39,7 +39,6 @@ aside {
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
-  box-sizing: inherit;
 }
 
 * {
@@ -69,4 +68,3 @@ body {
   justify-content: center;
   border: 1px solid black;
 }
-
