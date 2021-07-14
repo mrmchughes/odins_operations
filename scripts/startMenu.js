@@ -1,25 +1,9 @@
-import { gameBoard } from './gameBoard.js';
-import { generateMultiples } from './generateMultiples.js';
-import { generateFactors } from './generateFactors.js';
+
+import { gameController } from './gameController.js';
 
 const startMenu = () => {
 
-
-  // loads game board for play
-
-  const startPlay = () => {
-        
-    const lowerLimit = 2;
-    const upperLimit = 25;
-
-    const factorsObj = generateFactors(lowerLimit, upperLimit);
-    gameBoard.drawBoard(factorsObj);
-
-  }
-
-  const drawPage = (() => {
-
-    // creates title
+  const drawHeader = (() => {
     
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
@@ -29,6 +13,14 @@ const startMenu = () => {
     const instructions = document.createElement('h2');
     instructions.innerText = 'Select Game Options';
     header.appendChild(instructions);
+
+  })();
+
+  function pageDirect() {
+    console.log('page direct');
+  }
+
+  const startContainer = (() => {
 
     const container = document.querySelector('#container');
 
@@ -49,6 +41,9 @@ const startMenu = () => {
     const practiceContainer = document.createElement('box');
     practiceContainer.className = 'practice-container';
     container.appendChild(practiceContainer);
+
+    let practiceArea = 'factors';
+    let difficulty = 'intermediate';
 
     const selectMultiples = document.createElement('button');
     selectMultiples.innerHTML = 'Multiples';
@@ -78,7 +73,9 @@ const startMenu = () => {
     container.appendChild(beginGame);
 
     const beginButton = document.getElementById('begin');
-    beginButton.addEventListener('click', startPlay);
+    beginButton.addEventListener('click', function() {
+      gameController(practiceArea, difficulty);
+    });
 
   })();
 
