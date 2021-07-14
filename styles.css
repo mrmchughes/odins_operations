@@ -50,6 +50,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: darkblue;
+}
+
+h2 {
+  color: white;
+  font-family: monospace;
+  padding: 30px;
 }
 
 .game-board {
@@ -57,7 +64,9 @@ body {
   height: 502px;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
+  border: 1px solid hotpink;
+  position: absolute;
+  top: 80px;
 }
 
 .grid-square {
@@ -66,5 +75,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  color: white;
+  font-size: 22px;
+  font-family: monospace;
+  border: 1px solid hotpink;
+  background: none;
+}
+
+.character {
+  height: 100px;
+  width: 100px;
+  z-index: 3;
 }
