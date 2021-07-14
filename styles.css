@@ -68,3 +68,24 @@ body {
   justify-content: center;
   border: 1px solid black;
 }
+
+#practice-container {
+  display: inline-block;
+
+}
+
+.practice-area, .begin-button {
+  display: flex;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 42%;
+  margin-left: 42%;
+  margin-top: 7px;
+}
+
+.practice-area:hover, .begin-button:hover {
+  background-color: #c2cfd3;
+}
+
