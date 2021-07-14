@@ -54,14 +54,15 @@ body {
 }
 
 .game-board {
-  width: 602px;
-  height: 502px;
+  width: 600px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
 }
 
 .grid-square {
+  box-sizing: border-box;
   width: 100px;
   height: 100px;
   display: flex;
@@ -69,4 +70,3 @@ body {
   justify-content: center;
   border: 1px solid black;
 }
-
