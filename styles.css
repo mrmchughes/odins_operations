@@ -51,7 +51,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: darkblue;
+  background-color: #83c9f4;
 }
 
 h2 {
@@ -108,5 +108,5 @@ h2 {
 
 .practice-area:hover,
 .begin-button:hover {
-  background-color: #c2cfd3;
+  background-color: #d9f0ff;
 }
