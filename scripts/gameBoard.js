@@ -24,11 +24,9 @@ let gameBoard = (() => {
       square.id = 'grid-' + index;
       board.appendChild(square);
     });
+
     //Append the board to the body
     document.body.appendChild(board);
-    //Append the character to the body
-    let munch = character.createMuncher();
-    document.querySelector('.game-board').appendChild(munch);
   };
   return { drawBoard };
 })();
