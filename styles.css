@@ -39,6 +39,7 @@ aside {
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
+  box-sizing: inherit;
 }
 
 * {
@@ -60,8 +61,8 @@ h2 {
 }
 
 .game-board {
-  width: 602px;
-  height: 502px;
+  width: 600px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid hotpink;
@@ -70,6 +71,7 @@ h2 {
 }
 
 .grid-square {
+  box-sizing: border-box;
   width: 100px;
   height: 100px;
   display: flex;
@@ -86,4 +88,25 @@ h2 {
   height: 100px;
   width: 100px;
   z-index: 3;
+}
+
+#practice-container {
+  display: inline-block;
+}
+
+.practice-area,
+.begin-button {
+  display: flex;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-right: 42%;
+  margin-left: 42%;
+  margin-top: 7px;
+}
+
+.practice-area:hover,
+.begin-button:hover {
+  background-color: #c2cfd3;
 }
