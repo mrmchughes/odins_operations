@@ -1,4 +1,4 @@
-import { character } from './character.js';
+import character from './character.js';
 
 let gameBoard = (() => {
   //Create a grid square element for an answer object
@@ -23,8 +23,8 @@ let gameBoard = (() => {
       square.dataset.index = index;
       square.id = 'grid-' + index;
       board.appendChild(square);
+      board.appendChild(character.createMuncher());
     });
-
     //Append the board to the body
     document.body.appendChild(board);
   };

@@ -55,7 +55,7 @@ let character = (() => {
       character.style.top = parseInt(character.style.top) + 100 + 'px';
     }
   }
-  return { createMuncher, moveRight };
+  return { createMuncher, createMuncher };
 })();
 //Comment here
 export default character;
