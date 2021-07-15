@@ -44,3 +44,5 @@ let generatePrimes = (lowerBound, upperBound) => {
   }
   return { primesArray };
 };
+
+export { generatePrimes };

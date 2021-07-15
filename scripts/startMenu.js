@@ -42,29 +42,50 @@ const startMenu = () => {
     practiceContainer.className = 'practice-container';
     container.appendChild(practiceContainer);
 
-    let practiceArea = 'factors';
+    let practiceArea = 'multiples';
     let difficulty = 'intermediate';
 
     const selectMultiples = document.createElement('button');
     selectMultiples.innerHTML = 'Multiples';
     selectMultiples.className = 'practice-area';
+    selectMultiples.id = 'multiples';
     practiceContainer.appendChild(selectMultiples);
+
+    const multiplesButton = document.getElementById('multiples');
+    multiplesButton.addEventListener('click', function() {
+      practiceArea = 'multiples';
+    });
+
     const selectFactors = document.createElement('button');
     selectFactors.innerHTML = 'Factors';
     selectFactors.className = 'practice-area';
+    selectFactors.id = 'factors';
     practiceContainer.appendChild(selectFactors);
+
+    const factorsButton = document.getElementById('factors');
+    factorsButton.addEventListener('click', function() {
+      practiceArea = 'factors';
+    });
+
     const selectPrimes = document.createElement('button');
     selectPrimes.innerHTML = 'Primes';
     selectPrimes.className = 'practice-area';
+    selectPrimes.id = 'primes';
     practiceContainer.appendChild(selectPrimes);
-    const selectInequalities = document.createElement('button');
-    selectInequalities.innerHTML = 'Inequalities';
-    selectInequalities.className = 'practice-area';
-    practiceContainer.appendChild(selectInequalities);
-    const selectEqualities = document.createElement('button');
-    selectEqualities.innerHTML = 'Equalities';
-    selectEqualities.className = 'practice-area';
-    practiceContainer.appendChild(selectEqualities);
+
+    const primesButton = document.getElementById('primes');
+    primesButton.addEventListener('click', function() {
+      practiceArea = 'primes';
+    });
+
+    // const selectInequalities = document.createElement('button');
+    // selectInequalities.innerHTML = 'Inequalities';
+    // selectInequalities.className = 'practice-area';
+    // practiceContainer.appendChild(selectInequalities);
+    // const selectEqualities = document.createElement('button');
+    // selectEqualities.innerHTML = 'Equalities';
+    // selectEqualities.className = 'practice-area';
+    // practiceContainer.appendChild(selectEqualities);
 
     const beginGame = document.createElement('button');
     beginGame.innerHTML = 'Begin!';

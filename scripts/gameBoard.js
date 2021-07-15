@@ -1,5 +1,6 @@
-const gameBoard = (() => {
+import character from './character.js';
 
+const gameBoard = (() => {
   console.log('game board');
 
   //Create a grid square element for an answer object
@@ -17,7 +18,6 @@ const gameBoard = (() => {
   // Create a board to hold all the grid squares
 
   const drawBoard = (factorsObj) => {
-
     const answerArray = factorsObj.factorsArray;
     const base = factorsObj.base;
 
@@ -32,7 +32,7 @@ const gameBoard = (() => {
     let board = document.createElement('div');
     board.classList.add('game-board');
 
-    // Iterate over the answer array, create a grid square for each answer 
+    // Iterate over the answer array, create a grid square for each answer
     // and append it to the board
 
     answerArray.forEach((item, index) => {
@@ -42,14 +42,15 @@ const gameBoard = (() => {
       board.appendChild(square);
     });
 
+    //Append the character to the board
+    board.appendChild(character.createMuncher());
+
     // Append the board to the body
 
     document.body.appendChild(board);
-
   };
 
   return { drawBoard };
-
 })();
 
 export { gameBoard };
