@@ -17,9 +17,10 @@ const gameBoard = (() => {
 
   // Create a board to hold all the grid squares
 
-  const drawBoard = (factorsObj) => {
-    const answerArray = factorsObj.factorsArray;
-    const base = factorsObj.base;
+  const drawBoard = (answerObj) => {
+    console.log(answerObj);
+    const answerArray = answerObj.numbersArray;
+    const base = answerObj.base;
 
     console.log('draw board');
 
