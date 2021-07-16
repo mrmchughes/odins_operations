@@ -22,7 +22,7 @@ const gameBoard = (() => {
     const answerArray = answerObj.numbersArray;
     console.log(answerObj);
     let rule;
-    if (answerObj.type == 'Multiples' || 'Factors') {
+    if (answerObj.type === 'Multiples' || answerObj.type === 'Factors') {
       const base = answerObj.base;
       rule = answerObj.type + ' of ' + base;
     } else {
