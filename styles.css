@@ -90,23 +90,94 @@ h2 {
   z-index: 3;
 }
 
-#practice-container {
-  display: inline-block;
+.main {
+  align-items: center;
+}
+
+/* start page styling */
+
+#title-header {
+  text-align: center;
+}
+
+#instructions {
+  text-align: center;
+}
+
+.user-name-input {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid hotpink;
+  border-bottom: 2px solid rgb(250, 155, 202);
+  border-top: 1px solid rgb(250, 155, 202);
+}
+
+#container {
+  text-align: center;
+}
+
+#practice-title {
+  margin: 10px;
+}
+
+.practice-container {
+  display: block;
+  align-items: center;
+}
+
+.begin-container {
+  display: block;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  position: absolute;
 }
 
 .practice-area,
 .begin-button {
-  display: flex;
-  height: 50px;
   width: 100px;
-  border-radius: 5px;
-  font-weight: bold;
-  margin-right: 42%;
-  margin-left: 42%;
-  margin-top: 7px;
+  height: 50px;
+  font-family: arial,sans-serif;
+  font-size: larger;
+  margin-bottom: 20px;
+  margin-right: 3px;
+  margin-left: 3px;
+  display: inline-flex;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  padding: 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  align-items: flex-end;
+  border: 1px solid hotpink;
+  border-bottom: 2px solid rgb(250, 155, 202);
+  border-top: 1px solid rgb(250, 155, 202);
+}
+
+.begin-button {
+  align-items: center;
+  float: center;
 }
 
 .practice-area:hover,
 .begin-button:hover {
-  background-color: #c2cfd3;
+  background-color: rgb(253, 165, 209);
+}
+
+#multiples {
+  flex: 1;
+  align-items: center;
+}
+
+#factors {
+  flex: 2;
+  align-items: center;
+}
+
+#primes {
+  flex: 3;
+  align-items: center;
 }
