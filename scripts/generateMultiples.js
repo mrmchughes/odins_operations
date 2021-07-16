@@ -1,4 +1,5 @@
 let generateMultiples = (lowerBound, upperBound, maxMultiplier) => {
+  let type = 'multiples';
   let generateNumber = () => {
     let n = Math.floor(
       Math.random() * (upperBound - lowerBound + 1) + lowerBound
@@ -47,7 +48,7 @@ let generateMultiples = (lowerBound, upperBound, maxMultiplier) => {
     numbersArray.push(numObject);
     i++;
   }
-  return { base, numbersArray };
+  return { type, base, numbersArray };
 };
 
 export { generateMultiples };
