@@ -7,4 +7,16 @@
 
 const gameOver = () => {
     alert('Sorry, but that is a game over.', 'If you would like to play again, please press the reset button.', 'Otherwise, please close the page.');
+
+    const highScoreDiv = document.createElement('div');
+    highScoreDiv.innerHTML = '' //High Score stored here//
+    document.body.appendChild(highScoreDiv);
+
+    const resetButton = document.createElement('button');
+    resetButton.innerText = 'Reset Game';
+    document.body.appendChild(resetButton);
+
+    resetButton.addEventListener('click', gameBoard())
 };
+
+
