@@ -5,9 +5,9 @@ import { generatePrimes } from './generatePrimes.js';
 
 const gameController = (practiceArea, difficulty) => {
   const startMultiples = () => {
-    const lowerLimit = 1;
-    const upperLimit = 3;
-    const maxMultiplier = 5;
+    const lowerLimit = 4;
+    const upperLimit = 5;
+    const maxMultiplier = 3;
     const multiplesObj = generateMultiples(
       lowerLimit,
       upperLimit,
