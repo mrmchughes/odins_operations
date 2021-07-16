@@ -1,6 +1,6 @@
 import { gameController } from './gameController.js';
 import { cssLoader } from './cssLoader.js';
-cssLoader.load('test.css');
+cssLoader.load('styles.css');
 const startMenu = () => {
   const drawHeader = (() => {
     const header = document.querySelector('#header');
