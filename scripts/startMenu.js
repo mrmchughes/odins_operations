@@ -6,10 +6,12 @@ const startMenu = () => {
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
+    titleHeader.id = 'title-header';
     header.appendChild(titleHeader);
 
     const instructions = document.createElement('h2');
     instructions.innerText = 'Select Game Options';
+    instructions.id = 'instructions';
     header.appendChild(instructions);
   })();
 
@@ -32,6 +34,7 @@ const startMenu = () => {
 
     const practiceAreaTitle = document.createElement('h3');
     practiceAreaTitle.innerHTML = 'Practice Area';
+    practiceAreaTitle.id = 'practice-title';
     container.appendChild(practiceAreaTitle);
 
     const practiceContainer = document.createElement('box');
@@ -83,11 +86,15 @@ const startMenu = () => {
     // selectEqualities.className = 'practice-area';
     // practiceContainer.appendChild(selectEqualities);
 
+    const beginContainer = document.createElement('div');
+    beginContainer.className = 'begin-container';
+    container.appendChild(beginContainer);
+
     const beginGame = document.createElement('button');
     beginGame.innerHTML = 'Begin!';
     beginGame.className = 'begin-button';
     beginGame.id = 'begin';
-    container.appendChild(beginGame);
+    beginContainer.appendChild(beginGame);
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
