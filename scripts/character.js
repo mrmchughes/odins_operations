@@ -14,7 +14,6 @@ let character = (() => {
     switch (key) {
       case 'ArrowRight': //Right arrow key
         moveRight();
-        console.log(key);
         break;
       case 'ArrowLeft': //Left arrow key
         moveLeft();
@@ -55,7 +54,7 @@ let character = (() => {
       character.style.top = parseInt(character.style.top) + 100 + 'px';
     }
   }
-  return { createMuncher, createMuncher };
+  return { createMuncher };
 })();
 //Comment here
 export default character;

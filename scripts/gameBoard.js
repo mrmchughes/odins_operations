@@ -17,16 +17,19 @@ const gameBoard = (() => {
 
   // Create a board to hold all the grid squares
 
-  const drawBoard = (factorsObj) => {
-    const answerArray = factorsObj.factorsArray;
-    const base = factorsObj.base;
-
+  const drawBoard = (answerObj) => {
     console.log('draw board');
-
-    //Create a quick heading, move to different file later
-
+    const answerArray = answerObj.numbersArray;
+    console.log(answerObj);
+    let rule;
+    if (answerObj.type === 'Multiples' || answerObj.type === 'Factors') {
+      const base = answerObj.base;
+      rule = answerObj.type + ' of ' + base;
+    } else {
+      rule = 'Prime numbers';
+    }
     const titleCard = document.createElement('h2');
-    titleCard.innerText = 'Factors of ' + base;
+    titleCard.innerText = rule;
     document.body.appendChild(titleCard);
 
     let board = document.createElement('div');

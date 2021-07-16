@@ -1,50 +1,58 @@
 import { gameBoard } from './gameBoard.js';
 import { generateMultiples } from './generateMultiples.js';
 import { generateFactors } from './generateFactors.js';
+import { generatePrimes } from './generatePrimes.js';
 
 const gameController = (practiceArea, difficulty) => {
-
-    console.log('game controller');
-    console.log(practiceArea);
-    const lowerLimit = 2;
-    const upperLimit = 25;
-
   const startMultiples = () => {
-    const multiplesObj = generateMultiples(lowerLimit, upperLimit);
+    const lowerLimit = 4;
+    const upperLimit = 5;
+    const maxMultiplier = 3;
+    const multiplesObj = generateMultiples(
+      lowerLimit,
+      upperLimit,
+      maxMultiplier
+    );
     gameBoard.drawBoard(multiplesObj);
-  }
+  };
 
   const startFactors = () => {
-    console.log('start factors');
+    const lowerLimit = 2;
+    const upperLimit = 25;
     const factorsObj = generateFactors(lowerLimit, upperLimit);
     gameBoard.drawBoard(factorsObj);
+  };
 
-  }
+  const startPrimes = () => {
+    const lowerLimit = 1;
+    const upperLimit = 3;
+    const primesObject = generatePrimes(lowerLimit, upperLimit);
+    gameBoard.drawBoard(primesObject);
+  };
 
-    // loads game board for play
+  // loads game board for play
 
-  const startPlay = ((practiceArea, difficulty) => {
-
-    console.log('start play');
-
+  const startPlay = (practiceArea, difficulty) => {
     document.body.innerHTML = '';
 
-    switch(practiceArea) {
-
-      // TODO: fix switch statements so that 'case' works correctly
-
+    switch (practiceArea) {
       case 'factors':
         startFactors();
         break;
       case 'multiples':
         startMultiples();
         break;
+      case 'primes':
+        startPrimes();
+        break;
       default:
-        startFactors();
+        startMultiples();
     }
-             
-  })();
+  };
 
-}
+  // initiates controller choice
+
+  startPlay(practiceArea);
+};
 
 export { gameController };
