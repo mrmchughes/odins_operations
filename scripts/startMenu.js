@@ -1,10 +1,8 @@
-
 import { gameController } from './gameController.js';
-
+import { cssLoader } from './cssLoader.js';
+cssLoader.load('test.css');
 const startMenu = () => {
-
   const drawHeader = (() => {
-    
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
@@ -13,7 +11,6 @@ const startMenu = () => {
     const instructions = document.createElement('h2');
     instructions.innerText = 'Select Game Options';
     header.appendChild(instructions);
-
   })();
 
   function pageDirect() {
@@ -21,7 +18,6 @@ const startMenu = () => {
   }
 
   const startContainer = (() => {
-
     const container = document.querySelector('#container');
 
     const nameInputTitle = document.createElement('h3');
@@ -52,7 +48,7 @@ const startMenu = () => {
     practiceContainer.appendChild(selectMultiples);
 
     const multiplesButton = document.getElementById('multiples');
-    multiplesButton.addEventListener('click', function() {
+    multiplesButton.addEventListener('click', function () {
       practiceArea = 'multiples';
     });
 
@@ -63,7 +59,7 @@ const startMenu = () => {
     practiceContainer.appendChild(selectFactors);
 
     const factorsButton = document.getElementById('factors');
-    factorsButton.addEventListener('click', function() {
+    factorsButton.addEventListener('click', function () {
       practiceArea = 'factors';
     });
 
@@ -74,7 +70,7 @@ const startMenu = () => {
     practiceContainer.appendChild(selectPrimes);
 
     const primesButton = document.getElementById('primes');
-    primesButton.addEventListener('click', function() {
+    primesButton.addEventListener('click', function () {
       practiceArea = 'primes';
     });
 
@@ -94,12 +90,10 @@ const startMenu = () => {
     container.appendChild(beginGame);
 
     const beginButton = document.getElementById('begin');
-    beginButton.addEventListener('click', function() {
+    beginButton.addEventListener('click', function () {
       gameController(practiceArea, difficulty);
     });
-
   })();
-
 };
-  
-  export { startMenu };
+
+export { startMenu };
