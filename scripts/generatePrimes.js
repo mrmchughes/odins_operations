@@ -1,5 +1,5 @@
 let generatePrimes = (lowerBound, upperBound) => {
-  let type = 'primes';
+  let type = 'Primes';
   //Function to check if a number is prime
   const isPrime = (number) => {
     if (number === 1) {

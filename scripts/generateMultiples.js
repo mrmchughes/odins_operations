@@ -1,5 +1,5 @@
 let generateMultiples = (lowerBound, upperBound, maxMultiplier) => {
-  let type = 'multiples';
+  let type = 'Multiples';
   let generateNumber = () => {
     let n = Math.floor(
       Math.random() * (upperBound - lowerBound + 1) + lowerBound

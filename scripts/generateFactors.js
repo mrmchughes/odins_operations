@@ -1,6 +1,6 @@
 let generateFactors = (lowerBound, upperBound) => {
   console.log('generate factors');
-  let type = 'factors';
+  let type = 'Factors';
   let numbersArray = [];
   //Generate a base number between the upper and lower bounds
   let base = Math.floor(
