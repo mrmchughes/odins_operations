@@ -44,6 +44,7 @@ const gameController = (practiceArea, difficulty) => {
         break;
       case 'primes':
         startPrimes();
+        break;
       default:
         startMultiples();
     }

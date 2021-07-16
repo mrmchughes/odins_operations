@@ -20,6 +20,7 @@ const gameBoard = (() => {
   const drawBoard = (answerObj) => {
     console.log('draw board');
     const answerArray = answerObj.numbersArray;
+    console.log(answerObj);
     let rule;
     if (answerObj.type == 'Multiples' || 'Factors') {
       const base = answerObj.base;
