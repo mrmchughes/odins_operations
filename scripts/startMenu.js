@@ -113,6 +113,63 @@ const startMenu = () => {
     // selectEqualities.className = 'practice-area';
     // practiceContainer.appendChild(selectEqualities);
 
+
+    // creates difficuly button container
+
+    const difficultyTitle = document.createElement('h3');
+    difficultyTitle.innerHTML = 'Difficulty';
+    difficultyTitle.id = 'difficulty-title';
+    container.appendChild(difficultyTitle);
+
+    const difficultyContainer = document.createElement('box');
+    difficultyContainer.className = 'difficulty-container';
+    container.appendChild(difficultyContainer);
+
+    // creates buttons to select math area to practice
+
+    const selectEasy = document.createElement('button');
+    selectEasy.innerHTML = 'Easy';
+    selectEasy.className = 'difficulty';
+    selectEasy.id = 'easy';
+    difficultyContainer.appendChild(selectEasy);
+
+    const easyButton = document.getElementById('easy');
+    easyButton.addEventListener('click', function () {
+      selectEasy.style.backgroundColor = 'hotpink'; 
+      selectIntermediate.style.backgroundColor = 'whitesmoke';
+      selectHard.style.backgroundColor = 'whitesmoke';
+      difficulty = 'easy';
+    });
+
+    const selectIntermediate = document.createElement('button');
+    selectIntermediate.innerHTML = 'Intermediate';
+    selectIntermediate.className = 'difficulty';
+    selectIntermediate.id = 'intermediate';
+    selectIntermediate.style.backgroundColor = 'hotpink';
+    difficultyContainer.appendChild(selectIntermediate);
+
+    const intermediateButton = document.getElementById('intermediate');
+    intermediateButton.addEventListener('click', function () {
+      selectEasy.style.backgroundColor = 'whitesmoke'; 
+      selectIntermediate.style.backgroundColor = 'hotpink';
+      selectHard.style.backgroundColor = 'whitesmoke';
+      difficulty = 'intermediate';
+    });
+
+    const selectHard = document.createElement('button');
+    selectHard.innerHTML = 'Hard';
+    selectHard.className = 'difficulty';
+    selectHard.id = 'hard';
+    difficultyContainer.appendChild(selectHard);
+
+    const hardButton = document.getElementById('hard');
+    hardButton.addEventListener('click', function () {
+      selectEasy.style.backgroundColor = 'whitesmoke'; 
+      selectIntermediate.style.backgroundColor = 'whitesmoke';
+      selectHard.style.backgroundColor = 'hotpink';
+      difficulty = 'hard';
+    });
+
     // creates button to enable the game to begin
 
     const beginContainer = document.createElement('div');
