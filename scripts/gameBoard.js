@@ -1,4 +1,5 @@
 import character from './character.js';
+import { cssLoader } from './cssLoader.js';
 
 const gameBoard = (() => {
   console.log('game board');
@@ -19,6 +20,7 @@ const gameBoard = (() => {
 
   const drawBoard = (answerObj) => {
     console.log('draw board');
+    cssLoader.load('./stylesheets/game-board.css');
     const answerArray = answerObj.numbersArray;
     console.log(answerObj);
     let rule;

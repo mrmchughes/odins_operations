@@ -3,6 +3,7 @@ let generateFactors = (lowerBound, upperBound) => {
   let type = 'Factors';
   let numbersArray = [];
   //Generate a base number between the upper and lower bounds
+  //TODO: check if base is prime using isPrime function in generatePrimes module
   let base = Math.floor(
     Math.random() * (upperBound - lowerBound + 1) + lowerBound
   );

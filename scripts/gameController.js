@@ -25,7 +25,7 @@ const gameController = (practiceArea, difficulty) => {
 
   const startPrimes = () => {
     const lowerLimit = 1;
-    const upperLimit = 3;
+    const upperLimit = 20;
     const primesObject = generatePrimes(lowerLimit, upperLimit);
     gameBoard.drawBoard(primesObject);
   };

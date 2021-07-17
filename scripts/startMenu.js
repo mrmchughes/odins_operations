@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { gameController } from './gameController.js';
 import { cssLoader } from './cssLoader.js';
-cssLoader.load('styles.css');
+cssLoader.load('./stylesheets/start-menu.css');
 
 const startMenu = () => {
-
   // creates header text
-  
+
   const drawHeader = (() => {
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
@@ -63,12 +62,12 @@ const startMenu = () => {
     selectMultiples.innerHTML = 'Multiples';
     selectMultiples.className = 'practice-area';
     selectMultiples.id = 'multiples';
-    selectMultiples.style.backgroundColor = 'hotpink'; 
+    selectMultiples.style.backgroundColor = 'hotpink';
     practiceContainer.appendChild(selectMultiples);
 
     const multiplesButton = document.getElementById('multiples');
     multiplesButton.addEventListener('click', function () {
-      selectMultiples.style.backgroundColor = 'hotpink'; 
+      selectMultiples.style.backgroundColor = 'hotpink';
       selectFactors.style.backgroundColor = 'whitesmoke';
       selectPrimes.style.backgroundColor = 'whitesmoke';
       practiceArea = 'multiples';
@@ -82,7 +81,7 @@ const startMenu = () => {
 
     const factorsButton = document.getElementById('factors');
     factorsButton.addEventListener('click', function () {
-      selectMultiples.style.backgroundColor = 'whitesmoke'; 
+      selectMultiples.style.backgroundColor = 'whitesmoke';
       selectFactors.style.backgroundColor = 'hotpink';
       selectPrimes.style.backgroundColor = 'whitesmoke';
       practiceArea = 'factors';
@@ -96,7 +95,7 @@ const startMenu = () => {
 
     const primesButton = document.getElementById('primes');
     primesButton.addEventListener('click', function () {
-      selectMultiples.style.backgroundColor = 'whitesmoke'; 
+      selectMultiples.style.backgroundColor = 'whitesmoke';
       selectFactors.style.backgroundColor = 'whitesmoke';
       selectPrimes.style.backgroundColor = 'hotpink';
       practiceArea = 'primes';
@@ -112,7 +111,6 @@ const startMenu = () => {
     // selectEqualities.innerHTML = 'Equalities';
     // selectEqualities.className = 'practice-area';
     // practiceContainer.appendChild(selectEqualities);
-
 
     // creates difficuly button container
 
@@ -135,7 +133,7 @@ const startMenu = () => {
 
     const easyButton = document.getElementById('easy');
     easyButton.addEventListener('click', function () {
-      selectEasy.style.backgroundColor = 'hotpink'; 
+      selectEasy.style.backgroundColor = 'hotpink';
       selectIntermediate.style.backgroundColor = 'whitesmoke';
       selectHard.style.backgroundColor = 'whitesmoke';
       difficulty = 'easy';
@@ -150,7 +148,7 @@ const startMenu = () => {
 
     const intermediateButton = document.getElementById('intermediate');
     intermediateButton.addEventListener('click', function () {
-      selectEasy.style.backgroundColor = 'whitesmoke'; 
+      selectEasy.style.backgroundColor = 'whitesmoke';
       selectIntermediate.style.backgroundColor = 'hotpink';
       selectHard.style.backgroundColor = 'whitesmoke';
       difficulty = 'intermediate';
@@ -164,7 +162,7 @@ const startMenu = () => {
 
     const hardButton = document.getElementById('hard');
     hardButton.addEventListener('click', function () {
-      selectEasy.style.backgroundColor = 'whitesmoke'; 
+      selectEasy.style.backgroundColor = 'whitesmoke';
       selectIntermediate.style.backgroundColor = 'whitesmoke';
       selectHard.style.backgroundColor = 'hotpink';
       difficulty = 'hard';

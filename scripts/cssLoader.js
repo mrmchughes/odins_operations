@@ -3,7 +3,7 @@ const cssLoader = (() => {
   const load = (path) => {
     //Remove the currently loaded stylesheet if there is one
     if (headEl.querySelector('.loaded-css')) {
-      headEl.removeChild(headeEl.querySelector('.loaded-css'));
+      headEl.removeChild(headEl.querySelector('.loaded-css'));
     }
     //Create a new link element with the specified path
     let linkEl = document.createElement('link');
