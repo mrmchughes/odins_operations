@@ -31,12 +31,15 @@ let character = (() => {
         break;
       case 'ArrowLeft': //Left arrow key
         moveLeft();
+        console.log(position);
         break;
       case 'ArrowUp': //Up arrow key
         moveUp();
+        console.log(position);
         break;
       case 'ArrowDown': //Down arrow key
         moveDown();
+        console.log(position);
         break;
     }
   });
@@ -44,6 +47,7 @@ let character = (() => {
   function moveRight() {
     let character = document.querySelector('.character');
     if (parseInt(character.style.left) < 500) {
+      position++;
       character.style.left = parseInt(character.style.left) + 100 + 'px';
     }
   }
@@ -51,6 +55,7 @@ let character = (() => {
   function moveLeft() {
     let character = document.querySelector('.character');
     if (parseInt(character.style.left) > 0) {
+      position--;
       character.style.left = parseInt(character.style.left) - 100 + 'px';
     }
   }
@@ -58,6 +63,7 @@ let character = (() => {
   function moveUp() {
     let character = document.querySelector('.character');
     if (parseInt(character.style.top) > 0) {
+      position = position - 6;
       character.style.top = parseInt(character.style.top) - 100 + 'px';
     }
   }
@@ -65,10 +71,11 @@ let character = (() => {
   function moveDown() {
     let character = document.querySelector('.character');
     if (parseInt(character.style.top) < 400) {
+      position = position + 6;
       character.style.top = parseInt(character.style.top) + 100 + 'px';
     }
   }
-  return { createMuncher, spawn };
+  return { createMuncher, position };
 })();
 //Comment here
 export default character;
