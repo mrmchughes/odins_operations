@@ -30,6 +30,7 @@ const gameBoard = (() => {
     } else {
       rule = 'Prime numbers';
     }
+
     const titleCard = document.createElement('h2');
     titleCard.innerText = rule;
     document.body.appendChild(titleCard);
@@ -48,7 +49,7 @@ const gameBoard = (() => {
     });
 
     //Append the character to the board
-    board.appendChild(character.createMuncher());
+    board.appendChild(character.createMuncher(answerObj));
 
     // Append the board to the body
 
