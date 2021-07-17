@@ -1,10 +1,23 @@
 let character = (() => {
+  //Randomly spawn on an interior square of the board
+  const spawn = () => {
+    let spawnSquares = [7, 8, 9, 10, 13, 16, 19, 20, 21, 22];
+    let spawnIndex = Math.floor(Math.random() * spawnSquares.length - 1) + 1;
+    let spawnSquare = spawnSquares[spawnIndex];
+    return spawnSquare;
+  };
+
+  //Keep track of the current index of the character
+  let position;
+
   let createMuncher = () => {
+    position = spawn();
+    console.log(position);
     let muncher = document.createElement('div');
     muncher.classList.add('character');
     muncher.style.position = 'absolute';
-    muncher.style.left = '0px';
-    muncher.style.top = '0px';
+    muncher.style.left = (position % 6) * 100 + 'px';
+    muncher.style.top = Math.floor(position / 6) * 100 + 'px';
     muncher.style.backgroundImage = "url('../images/goldenmuncher_100.gif')";
     return muncher;
   };
@@ -14,6 +27,7 @@ let character = (() => {
     switch (key) {
       case 'ArrowRight': //Right arrow key
         moveRight();
+        console.log(position);
         break;
       case 'ArrowLeft': //Left arrow key
         moveLeft();
@@ -54,7 +68,7 @@ let character = (() => {
       character.style.top = parseInt(character.style.top) + 100 + 'px';
     }
   }
-  return { createMuncher };
+  return { createMuncher, spawn };
 })();
 //Comment here
 export default character;
