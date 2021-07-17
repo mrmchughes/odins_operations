@@ -100,6 +100,24 @@ h2 {
   text-align: center;
 }
 
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(1, 14, 15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  line-height: 2;
+  font-family: arial, sans-serif;
+  text-shadow: 0 0 10px white, 0 0 10px whitesmoke;
+  border-style: none;
+  border-width: 0px;
+  border-color: #ccc;
+  border-radius: 0%;
+}
+
 #instructions {
   text-align: center;
 }
@@ -118,11 +136,11 @@ h2 {
   text-align: center;
 }
 
-#practice-title {
+#practice-title, #difficulty-title {
   margin: 10px;
 }
 
-.practice-container {
+.practice-container, .difficulty-container {
   display: block;
   align-items: center;
 }
@@ -136,8 +154,9 @@ h2 {
 }
 
 .practice-area,
-.begin-button {
-  width: 100px;
+.begin-button,
+.difficulty {
+  width: 125px;
   height: 50px;
   font-family: arial,sans-serif;
   font-size: larger;
@@ -163,21 +182,25 @@ h2 {
 }
 
 .practice-area:hover,
-.begin-button:hover {
+.begin-button:hover,
+.difficulty-area:hover {
   background-color: rgb(253, 165, 209);
 }
 
-#multiples {
+#multiples,
+#easy {
   flex: 1;
   align-items: center;
 }
 
-#factors {
+#factors,
+#intermediate {
   flex: 2;
   align-items: center;
 }
 
-#primes {
+#primes,
+#hard {
   flex: 3;
   align-items: center;
 }
