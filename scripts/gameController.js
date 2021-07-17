@@ -4,6 +4,7 @@ import { generateFactors } from './generateFactors.js';
 import { generatePrimes } from './generatePrimes.js';
 
 const gameController = (practiceArea, difficulty) => {
+  
   const startMultiples = () => {
     const lowerLimit = 4;
     const upperLimit = 5;
@@ -13,6 +14,7 @@ const gameController = (practiceArea, difficulty) => {
       upperLimit,
       maxMultiplier
     );
+    console.log(multiplesObj);
     gameBoard.drawBoard(multiplesObj);
   };
 
