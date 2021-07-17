@@ -1,8 +1,7 @@
 let generateFactors = (lowerBound, upperBound) => {
-
   console.log('generate factors');
-
-  let factorsArray = [];
+  let type = 'Factors';
+  let numbersArray = [];
   //Generate a base number between the upper and lower bounds
   let base = Math.floor(
     Math.random() * (upperBound - lowerBound + 1) + lowerBound
@@ -29,10 +28,10 @@ let generateFactors = (lowerBound, upperBound) => {
     let isFactor = base % answer === 0;
     //Store the answer in an object and add it to the multiples array
     let numObject = { answer, isCorrect: isFactor };
-    factorsArray.push(numObject);
+    numbersArray.push(numObject);
     i++;
   }
-  return { base, factorsArray };
+  return { type, base, numbersArray };
 };
 
 export { generateFactors };

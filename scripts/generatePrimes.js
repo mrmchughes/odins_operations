@@ -1,4 +1,5 @@
 let generatePrimes = (lowerBound, upperBound) => {
+  let type = 'Primes';
   //Function to check if a number is prime
   const isPrime = (number) => {
     if (number === 1) {
@@ -15,7 +16,7 @@ let generatePrimes = (lowerBound, upperBound) => {
     }
   };
   //Create an array of objects with prime numbers
-  let primesArray = [];
+  let numbersArray = [];
   let answer;
   let i = 0;
   while (i < 30) {
@@ -36,13 +37,13 @@ let generatePrimes = (lowerBound, upperBound) => {
       } while (isPrime(answer));
     }
     //Check if the answer is prime
-    isCorrect = isPrime(answer);
+    let isCorrect = isPrime(answer);
     //Store the answer in an object
     let numObject = { answer, isCorrect };
-    primesArray.push(numObject);
+    numbersArray.push(numObject);
     i++;
   }
-  return { primesArray };
+  return { type, numbersArray };
 };
 
 export { generatePrimes };
