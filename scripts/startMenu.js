@@ -4,6 +4,7 @@ import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
 const startMenu = () => {
+  
   // creates header text
 
   const drawHeader = (() => {
@@ -100,17 +101,6 @@ const startMenu = () => {
       selectPrimes.style.backgroundColor = 'hotpink';
       practiceArea = 'primes';
     });
-
-    // TODO: add equalities, inequalities, or another option
-
-    // const selectInequalities = document.createElement('button');
-    // selectInequalities.innerHTML = 'Inequalities';
-    // selectInequalities.className = 'practice-area';
-    // practiceContainer.appendChild(selectInequalities);
-    // const selectEqualities = document.createElement('button');
-    // selectEqualities.innerHTML = 'Equalities';
-    // selectEqualities.className = 'practice-area';
-    // practiceContainer.appendChild(selectEqualities);
 
     // creates difficuly button container
 
