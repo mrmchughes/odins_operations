@@ -1,8 +1,8 @@
 const moveCharacter = (() => {
 
   const moveResponse = (position, answerObject) => {
-    const answerCorrect = answerObject.numbersArray[position].isCorrect;
-    const selectedGrid = document.getElementById('grid-' + position);
+
+    let selectedGrid = document.getElementById('grid-' + position);
 
     // changes grid square color upon selection
 
@@ -13,6 +13,7 @@ const moveCharacter = (() => {
 
     document.addEventListener('keypress', function (e) {
       if (e.key === 'Enter') {
+        const answerCorrect = answerObject.numbersArray[position].isCorrect;
         if (answerCorrect) {
           selectedGrid.style.backgroundColor = 'hotpink';
           // TODO: add sound for correct choice
@@ -20,12 +21,12 @@ const moveCharacter = (() => {
           selectedGrid.style.backgroundColor = 'red';
           // TODO: add sound for incorrect choice
         }
+      } else {
+        selectedGrid.style.backgroundColor = 'rgb(250, 155, 202)';
       }
     });
     
   }  
-
-
 
   return { moveResponse };
 
