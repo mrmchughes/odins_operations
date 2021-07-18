@@ -31,9 +31,12 @@ const gameBoard = (() => {
       rule = 'Prime numbers';
     }
 
+    const header = document.createElement('div');
+    header.id = 'gameboard-header';
     const titleCard = document.createElement('h2');
     titleCard.innerText = rule;
-    document.body.appendChild(titleCard);
+    document.body.appendChild(header);
+    header.appendChild(titleCard);
 
     let board = document.createElement('div');
     board.classList.add('game-board');
