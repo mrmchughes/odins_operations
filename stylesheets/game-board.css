@@ -57,7 +57,7 @@ body {
 h2 {
   color: white;
   font-family: monospace;
-  padding: 30px;
+  padding-top: 30px;
 }
 
 .main {
@@ -92,4 +92,16 @@ h2 {
   height: 100px;
   width: 100px;
   z-index: 3;
+}
+
+#gameboard-header {
+  text-align: center;
+  width: 100%;
+}
+
+#display-score {
+  color:whitesmoke;
+  font-size: 18px;
+  margin-right: 28px;
+  float: right;
 }
