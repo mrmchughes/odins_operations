@@ -44,7 +44,7 @@ let generateMultiples = (lowerBound, upperBound, maxMultiplier) => {
     //Check if the answer is multiple of the base number
     let isMultiple = (factor * multiplier) % base === 0;
     //Store the answer in an object and add it to the multiples array
-    let numObject = { answer, isCorrect: isMultiple };
+    let numObject = { answer, isCorrect: isMultiple, selected: false };
     numbersArray.push(numObject);
     i++;
   }
