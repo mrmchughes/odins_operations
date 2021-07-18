@@ -1,5 +1,9 @@
+import moveCharacter from './moveCharacter.js';
+
 let character = (() => {
+
   //Randomly spawn on an interior square of the board
+
   const spawn = () => {
     let spawnSquares = [7, 8, 9, 10, 13, 16, 19, 20, 21, 22];
     let spawnIndex = Math.floor(Math.random() * spawnSquares.length - 1) + 1;
@@ -7,11 +11,14 @@ let character = (() => {
     return spawnSquare;
   };
 
-  //Keep track of the current index of the character
-  let position;
+  // Keep track of the current index of the character
 
-  let createMuncher = () => {
+  let position;
+  let answerObject;
+
+  let createMuncher = (answerObj) => {
     position = spawn();
+    answerObject = answerObj;
     console.log(position);
     let muncher = document.createElement('div');
     muncher.classList.add('character');
@@ -28,18 +35,22 @@ let character = (() => {
       case 'ArrowRight': //Right arrow key
         moveRight();
         console.log(position);
+        moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowLeft': //Left arrow key
         moveLeft();
         console.log(position);
+        moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowUp': //Up arrow key
         moveUp();
         console.log(position);
+        moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowDown': //Down arrow key
         moveDown();
         console.log(position);
+        moveCharacter.moveResponse(position, answerObject);
         break;
     }
   });
@@ -75,7 +86,7 @@ let character = (() => {
       character.style.top = parseInt(character.style.top) + 100 + 'px';
     }
   }
-  return { createMuncher, position };
+  return { createMuncher, position, answerObject };
 })();
-//Comment here
+
 export default character;
