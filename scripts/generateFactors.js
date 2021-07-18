@@ -3,6 +3,7 @@ let generateFactors = (lowerBound, upperBound) => {
   let type = 'Factors';
   let numbersArray = [];
   //Generate a base number between the upper and lower bounds
+  //TODO: check if base is prime using isPrime function in generatePrimes module
   let base = Math.floor(
     Math.random() * (upperBound - lowerBound + 1) + lowerBound
   );
@@ -27,7 +28,7 @@ let generateFactors = (lowerBound, upperBound) => {
     //Check if the answer is factor of the base number
     let isFactor = base % answer === 0;
     //Store the answer in an object and add it to the multiples array
-    let numObject = { answer, isCorrect: isFactor };
+    let numObject = { answer, isCorrect: isFactor, selected: false };
     numbersArray.push(numObject);
     i++;
   }

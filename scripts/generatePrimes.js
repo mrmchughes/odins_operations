@@ -39,7 +39,7 @@ let generatePrimes = (lowerBound, upperBound) => {
     //Check if the answer is prime
     let isCorrect = isPrime(answer);
     //Store the answer in an object
-    let numObject = { answer, isCorrect };
+    let numObject = { answer, isCorrect, selected: false };
     numbersArray.push(numObject);
     i++;
   }

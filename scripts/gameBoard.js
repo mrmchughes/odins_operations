@@ -1,4 +1,5 @@
 import character from './character.js';
+import { cssLoader } from './cssLoader.js';
 
 const gameBoard = (() => {
   console.log('game board');
@@ -19,6 +20,7 @@ const gameBoard = (() => {
 
   const drawBoard = (answerObj) => {
     console.log('draw board');
+    cssLoader.load('./stylesheets/game-board.css');
     const answerArray = answerObj.numbersArray;
     console.log(answerObj);
     let rule;
@@ -28,9 +30,13 @@ const gameBoard = (() => {
     } else {
       rule = 'Prime numbers';
     }
+
+    const header = document.createElement('div');
+    header.id = 'gameboard-header';
     const titleCard = document.createElement('h2');
     titleCard.innerText = rule;
-    document.body.appendChild(titleCard);
+    document.body.appendChild(header);
+    header.appendChild(titleCard);
 
     let board = document.createElement('div');
     board.classList.add('game-board');
@@ -46,7 +52,7 @@ const gameBoard = (() => {
     });
 
     //Append the character to the board
-    board.appendChild(character.createMuncher());
+    board.appendChild(character.createMuncher(answerObj));
 
     // Append the board to the body
 
