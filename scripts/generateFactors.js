@@ -1,37 +1,66 @@
-let generateFactors = (lowerBound, upperBound) => {
-  console.log('generate factors');
+const generateFactors = (maxMultiplier) => {
+
+  // initiates variables
+
   let type = 'Factors';
-  let numbersArray = [];
-  //Generate a base number between the upper and lower bounds
-  //TODO: check if base is prime using isPrime function in generatePrimes module
-  let base = Math.floor(
-    Math.random() * (upperBound - lowerBound + 1) + lowerBound
-  );
   let answer;
-  let i = 0;
-  while (i < 30) {
-    let diceRoll = Math.random();
-    //40 percent of the time generate a correct answer
-    if (diceRoll < 0.4) {
-      do {
-        answer = Math.floor(Math.random() * (base + 1));
-      } while (base % answer !== 0);
+  let isFactor;
+  let numbersArray = [];
+
+  // determines base factor
+
+  const multiplier = Math.floor(Math.random() * (maxMultiplier - 1)) + 2;
+  const multicand = Math.floor(Math.random() * maxMultiplier) + 1;
+  const base = multiplier * multicand;
+
+  // generates 30 random numbers to populate grid
+
+  for (let i = 1; i <= 30; i++) {
+
+    // resets variables
+
+    let randomNumber = '';
+    answer = '';
+
+    // generates random number for approximately 40% chance of correct selection
+
+    randomNumber = Math.random();
+
+    if (randomNumber < .40) {
+
+      // tries random answers until correct factor is returned
+
+      for (let j = 0; j < 1; j++) {
+        let correctAnswer = Math.floor(Math.random() * base) + 1;
+        if ((base % correctAnswer) === 0) {
+          answer = correctAnswer;
+          isFactor = true;
+        } else {
+          j--;
+        }
+      }
+
+    } else {
+
+      // tries random answers until incorrect answer is returned
+
+      for (let k = 0; k < 1; k++) {
+        let wrongAnswer = Math.floor(Math.random() * base) + 1;
+        if ((base % wrongAnswer) === 0) {
+          k--;
+        } else {
+          answer = wrongAnswer;
+          isFactor = false;
+        }
+      }
     }
-    //Else return an incorrect answer
-    else {
-      do {
-        answer = Math.floor(
-          Math.random() * (base - lowerBound + 1) + lowerBound
-        );
-      } while (base % answer === 0);
-    }
-    //Check if the answer is factor of the base number
-    let isFactor = base % answer === 0;
-    //Store the answer in an object and add it to the multiples array
-    let numObject = { answer, isCorrect: isFactor, selected: false };
+
+    // Stores the answer in an object and add it to the multiples array
+
+    const numObject = { answer, isCorrect: isFactor, selected: false };
     numbersArray.push(numObject);
-    i++;
   }
+
   return { type, base, numbersArray };
 };
 

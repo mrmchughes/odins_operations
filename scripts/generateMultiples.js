@@ -5,11 +5,10 @@ const generateMultiples = (maxMultiplier) => {
 
   let type = 'Multiples';
   let answer;
-  let wrongAnswer;
   let isMultiple;
   let numbersArray = [];
 
-  const multiplier = Math.floor(Math.random() * (maxMultiplier - 1)) + 2;
+  const base = Math.floor(Math.random() * (maxMultiplier - 1)) + 2;
 
   // generates 30 random numbers to populate grid
 
@@ -31,17 +30,18 @@ const generateMultiples = (maxMultiplier) => {
 
       // returns correct multiplier
 
-      answer = multiplier * multiplicand;
+      answer = base * multiplicand;
       isMultiple = true;
     } else {
 
       // tries random answers until incorrect answer is returned
 
+      let wrongAnswer;
       for (let j = 0; j < 1; j++) {
         wrongAnswer = (Math.floor(Math.random() * maxMultiplier) + 1) * 
-          (Math.floor(Math.random() * multiplier) + 1);
+          (Math.floor(Math.random() * base) + 1);
 
-        if (wrongAnswer % multiplier === 0) {
+        if (wrongAnswer % base === 0) {
           j--;
         } else {
           answer = wrongAnswer;
@@ -56,7 +56,7 @@ const generateMultiples = (maxMultiplier) => {
     numbersArray.push(numObject);
   }
 
-  return { type, multiplier, numbersArray };
+  return { type, base, numbersArray };
 };
 
 export { generateMultiples };
