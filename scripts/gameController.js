@@ -43,7 +43,7 @@ const gameController = ((practiceArea, difficulty) => {
 
   const startPrimes = (difficulty) => {
     const lowerLimit = 1;
-    const upperLimit = 20;
+    const upperLimit = generateDifficulty(difficulty) * (Math.floor(Math.random() * 5) + 1);
     const primesObject = generatePrimes(lowerLimit, upperLimit);
     gameBoard.drawBoard(primesObject);
   };
