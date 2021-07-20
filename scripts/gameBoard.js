@@ -25,7 +25,7 @@ const gameBoard = (() => {
     console.log(answerObj);
     let rule;
     if (answerObj.type === 'Multiples' || answerObj.type === 'Factors') {
-      const base = answerObj.base;
+      const base = answerObj.multiplier;
       rule = answerObj.type + ' of ' + base;
     } else {
       rule = 'Prime numbers';
