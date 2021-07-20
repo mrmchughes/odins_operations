@@ -8,7 +8,6 @@ const gameController = ((practiceArea, difficulty) => {
   const generateDifficulty = (difficulty) => {
 
     let maxMultiplier;
-    console.log(difficulty);
 
       switch (difficulty) {
         case 'easy':
@@ -42,7 +41,7 @@ const gameController = ((practiceArea, difficulty) => {
     gameBoard.drawBoard(factorsObj);
   };
 
-  const startPrimes = () => {
+  const startPrimes = (difficulty) => {
     const lowerLimit = 1;
     const upperLimit = 20;
     const primesObject = generatePrimes(lowerLimit, upperLimit);
