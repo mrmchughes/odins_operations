@@ -19,13 +19,12 @@ const gameBoard = (() => {
   // Create a board to hold all the grid squares
 
   const drawBoard = (answerObj) => {
-    console.log('draw board');
     cssLoader.load('./stylesheets/game-board.css');
     const answerArray = answerObj.numbersArray;
     console.log(answerObj);
     let rule;
     if (answerObj.type === 'Multiples' || answerObj.type === 'Factors') {
-      const base = answerObj.multiplier;
+      const base = answerObj.base;
       rule = answerObj.type + ' of ' + base;
     } else {
       rule = 'Prime numbers';

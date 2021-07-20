@@ -5,78 +5,40 @@ import { generatePrimes } from './generatePrimes.js';
 
 const gameController = ((practiceArea, difficulty) => {
 
-  const multiplesDifficulty = (difficulty) => {
+  const generateDifficulty = (difficulty) => {
 
-    let lowerLimit;
-    let upperLimit;
     let maxMultiplier;
+    console.log(difficulty);
 
       switch (difficulty) {
         case 'easy':
-          lowerLimit = 2;
-          upperLimit = 5;
           maxMultiplier = 5;
+          console.log('easy');
           break;
         case 'intermediate':
-          lowerLimit = 2;
-          upperLimit = 10;
           maxMultiplier = 10;
           break;
         case 'hard':
-          lowerLimit = 2;
-          upperLimit = 12;
           maxMultiplier = 12;
           break;
         default:
-          lowerLimit = 2;
-          upperLimit = 5;
           maxMultiplier = 5;
       }
     
-    return { lowerLimit, upperLimit, maxMultiplier }
+    return maxMultiplier;
   }
 
-  const factorsDifficulty = (difficulty) => {
-
-    let lowerLimit;
-    let upperLimit;
-
-      switch (difficulty) {
-        case 'easy':
-          lowerLimit = 2;
-          upperLimit = 25;
-          break;
-        case 'intermediate':
-          lowerLimit = 2;
-          upperLimit = 100;
-          break;
-        case 'hard':
-          lowerLimit = 2;
-          upperLimit = 144;
-          break;
-        default:
-          lowerLimit = 2;
-          upperLimit = 25;
-      }
-    
-    return { lowerLimit, upperLimit }
-  }
-  
   const startMultiples = (difficulty) => {
-    // const lowerLimit = multiplesDifficulty(difficulty).lowerLimit;
-    // const upperLimit = multiplesDifficulty(difficulty).upperLimit;
-    const maxMultiplier = multiplesDifficulty(difficulty).maxMultiplier;
+    const maxMultiplier = generateDifficulty(difficulty);
     const multiplesObj = generateMultiples(
       maxMultiplier
     );
-    console.log(multiplesObj);
     gameBoard.drawBoard(multiplesObj);
   };
 
-  const startFactors = () => {
-    const lowerLimit = factorsDifficulty(difficulty).lowerLimit;
-    const upperLimit = factorsDifficulty(difficulty).upperLimit;
-    const factorsObj = generateFactors(lowerLimit, upperLimit);
+  const startFactors = (difficulty) => {
+    const maxMultiplier = generateDifficulty(difficulty);
+    const factorsObj = generateFactors(maxMultiplier);
     gameBoard.drawBoard(factorsObj);
   };
 
