@@ -15,7 +15,7 @@ const moveCharacter = (() => {
     let newNumbersArray = {
       answer: answerObject.numbersArray[position].answer, 
       isCorrect: answerCorrect, 
-      selected: true,
+      selected: false,
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
@@ -45,7 +45,7 @@ const moveCharacter = (() => {
 
   document.addEventListener('keypress', function (e) {
 
-    const position = selectedGrid.dataset.index;
+    // const position = selectedGrid.dataset.index;
 
     if (e.key === 'Enter') {
         if (answerCorrect) {
