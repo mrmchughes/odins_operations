@@ -3,31 +3,47 @@ import { generateMultiples } from './generateMultiples.js';
 import { generateFactors } from './generateFactors.js';
 import { generatePrimes } from './generatePrimes.js';
 
-const gameController = (practiceArea, difficulty) => {
-  
-  const startMultiples = () => {
-    const lowerLimit = 4;
-    const upperLimit = 5;
-    const maxMultiplier = 3;
+const gameController = ((practiceArea, difficulty) => {
+
+  const generateDifficulty = (difficulty) => {
+
+    let maxMultiplier;
+
+      switch (difficulty) {
+        case 'easy':
+          maxMultiplier = 5;
+          console.log('easy');
+          break;
+        case 'intermediate':
+          maxMultiplier = 10;
+          break;
+        case 'hard':
+          maxMultiplier = 12;
+          break;
+        default:
+          maxMultiplier = 5;
+      }
+    
+    return maxMultiplier;
+  }
+
+  const startMultiples = (difficulty) => {
+    const maxMultiplier = generateDifficulty(difficulty);
     const multiplesObj = generateMultiples(
-      lowerLimit,
-      upperLimit,
       maxMultiplier
     );
-    console.log(multiplesObj);
     gameBoard.drawBoard(multiplesObj);
   };
 
-  const startFactors = () => {
-    const lowerLimit = 2;
-    const upperLimit = 25;
-    const factorsObj = generateFactors(lowerLimit, upperLimit);
+  const startFactors = (difficulty) => {
+    const maxMultiplier = generateDifficulty(difficulty);
+    const factorsObj = generateFactors(maxMultiplier);
     gameBoard.drawBoard(factorsObj);
   };
 
-  const startPrimes = () => {
+  const startPrimes = (difficulty) => {
     const lowerLimit = 1;
-    const upperLimit = 20;
+    const upperLimit = generateDifficulty(difficulty) * (Math.floor(Math.random() * 5) + 1);
     const primesObject = generatePrimes(lowerLimit, upperLimit);
     gameBoard.drawBoard(primesObject);
   };
@@ -39,22 +55,21 @@ const gameController = (practiceArea, difficulty) => {
 
     switch (practiceArea) {
       case 'factors':
-        startFactors();
+        startFactors(difficulty);
         break;
       case 'multiples':
-        startMultiples();
+        startMultiples(difficulty);
         break;
       case 'primes':
-        startPrimes();
+        startPrimes(difficulty);
         break;
       default:
-        startMultiples();
+        startMultiples(difficulty);
     }
   };
 
-  // initiates controller choice
+  return { startPlay };
 
-  startPlay(practiceArea);
-};
+})();
 
 export { gameController };
