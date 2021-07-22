@@ -1,22 +1,31 @@
-//when player selects wrong answer//
-//display message saying, 'sorry, that is an incorrect answer//
-//then reset the page or character?//
+//import {score} from './score.js';//
 
-//when game over is triggered, display message (alert?) saying 'thanks for playing!'//
-//have button appear after message to reset the game when pressed//
+//import {startContainer} from './startMenu.js';//
 
 const gameOver = () => {
-    alert('Sorry, but that is a game over.', 'If you would like to play again, please press the reset button.', 'Otherwise, please close the page.');
+    //const username = startMenu.js -> startContainer -> userNameInput.text?//
+    //const finalScore = score.js -> scoreNumber.value//
+    //const highScore = score.highScore.value?//
 
-    const highScoreDiv = document.createElement('div');
-    highScoreDiv.innerHTML = '' //High Score stored here//
+    const gameOverInstructions = document.createElement('p');
+    gameOverInstructions.innerHTML = 'Sorry, but that is a game over. If you would like to play again, please press the reset button. Otherwise, you can close the game.';
+    document.body.appendChild(gameOverInstructions);
+
+    const finalScoreDiv = document.createElement('p');
+    finalScoreDiv.innerHTML = '' //Congrats, ${username}, your final score was ${finalScore.value}.//
+    document.body.appendChild(finalScoreDiv);
+
+    const highScoreDiv = document.createElement('p');
+    highScoreDiv.innerHTML = '' //The current high score is ${highScore.value}//
     document.body.appendChild(highScoreDiv);
 
     const resetButton = document.createElement('button');
     resetButton.innerText = 'Reset Game';
     document.body.appendChild(resetButton);
 
-    resetButton.addEventListener('click', gameBoard())
+    resetButton.addEventListener('click', function(){
+        startMenu();
+    })
 };
 
 
