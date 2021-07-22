@@ -27,5 +27,3 @@ const gameOver = () => {
         startMenu();
     })
 };
-
-
