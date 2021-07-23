@@ -128,6 +128,30 @@ const character = (() => {
     enemyAttack(enemyPosition, playerPosition);
   });
 
+  // moves player with adjacent square clicked
+
+  // TODO: improve responsiveness of click function but widening grid area
+
+  document.addEventListener('click', function (e) {
+    const dataIndex = parseInt(e.target.dataset.index);
+    let key;
+    let character = player;
+
+    if (player.position + 1 === dataIndex) {
+      key = 'ArrowRight';
+    } else if (player.position - 1 === dataIndex) {
+      key = 'ArrowLeft';
+    } else if (player.position - 6 === dataIndex) {
+      key = 'ArrowUp';
+    } else if (player.position + 6 === dataIndex) {
+      key = 'ArrowDown';
+    }
+
+    let playerPosition = moveUser(key, character);
+    let enemyPosition = enemy.position;
+    enemyAttack(enemyPosition, playerPosition);
+  })
+
   const moveEnemy = () => {
     let randomMovement = Math.floor(Math.random() * 4) + 1;
     switch (randomMovement) {
