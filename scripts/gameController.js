@@ -3,7 +3,7 @@ import { generateMultiples } from './generateMultiples.js';
 import { generateFactors } from './generateFactors.js';
 import { generatePrimes } from './generatePrimes.js';
 
-const gameController = ((practiceArea, difficulty) => {
+const gameController = (() => {
 
   const generateDifficulty = (difficulty) => {
 

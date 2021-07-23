@@ -52,6 +52,7 @@ const gameBoard = (() => {
 
     //Append the character to the board
     board.appendChild(character.createMuncher(answerObj));
+    board.appendChild(character.createEnemy());
 
     // Append the board to the body
 
