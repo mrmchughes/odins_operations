@@ -117,6 +117,7 @@ const placeAvatar = (character) => {
 
   const moveEnemy = () => {
     let randomMovement = Math.floor(Math.random() * 4) + 1;
+    console.log(randomMovement);
     switch (randomMovement) {
       case 1: //Right arrow key
         return 'ArrowRight';
@@ -127,7 +128,7 @@ const placeAvatar = (character) => {
       case 3: //Up arrow key
         return 'ArrowUp';
         break;
-      case 'ArrowDown': //Down arrow key
+      case 4:
         return 'ArrowDown';
         break;
     }
@@ -136,11 +137,13 @@ const placeAvatar = (character) => {
   // moves enemy every 3 seconds
 
   function displayEnemy() {
-    setTimeout(function() {
+    setInterval(function() {
+      let key = '';
       let user = enemy.userName;
-      let key = moveEnemy();
+      key = moveEnemy();
       console.log(`move enemy ${key}`);
       moveUser(key, user);
+      // TODO: return position number and check that against the position of the player avatar
     }, 3000);
   }
 
