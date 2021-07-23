@@ -2,6 +2,11 @@ import moveCharacter from './moveCharacter.js';
 
 let character = (() => {
 
+  const createAvatar = (userName, marker) => ({ userName, marker });
+  const player = createAvatar('Player', "url('../images/goldenmuncher_100.gif')");
+  const enemy = createAvatar('Enemy', "url('../images/goldenmuncher_100.gif')");
+  let character = player;
+
   //Randomly spawn on an interior square of the board
 
   const spawn = () => {
@@ -19,68 +24,71 @@ let character = (() => {
   let createMuncher = (answerObj) => {
     position = spawn();
     answerObject = answerObj;
-    console.log(position);
+
     let muncher = document.createElement('div');
-    muncher.classList.add('character');
+    muncher.classList.add(character.userName);
+    console.log(muncher.classList);
     muncher.style.position = 'absolute';
     muncher.style.left = (position % 6) * 100 + 'px';
     muncher.style.top = Math.floor(position / 6) * 100 + 'px';
-    muncher.style.backgroundImage = "url('../images/goldenmuncher_100.gif')";
+    muncher.style.backgroundImage = character.marker;
+    console.log(muncher);
     return muncher;
   };
 
   document.addEventListener('keydown', function (e) {
     let key = e.key;
+    let user = character.userName;
     switch (key) {
       case 'ArrowRight': //Right arrow key
-        moveRight();
+        moveRight(user);
         console.log(position);
         moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowLeft': //Left arrow key
-        moveLeft();
+        moveLeft(user);
         console.log(position);
         moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowUp': //Up arrow key
-        moveUp();
+        moveUp(user);
         console.log(position);
         moveCharacter.moveResponse(position, answerObject);
         break;
       case 'ArrowDown': //Down arrow key
-        moveDown();
+        moveDown(user);
         console.log(position);
         moveCharacter.moveResponse(position, answerObject);
         break;
     }
   });
 
-  function moveRight() {
-    let character = document.querySelector('.character');
+  function moveRight(user) {
+    let character = document.querySelector(`.${user}`);
     if (parseInt(character.style.left) < 500) {
       position++;
       character.style.left = parseInt(character.style.left) + 100 + 'px';
     }
   }
 
-  function moveLeft() {
-    let character = document.querySelector('.character');
+  function moveLeft(user) {
+    let character = document.querySelector(`.${user}`);
     if (parseInt(character.style.left) > 0) {
       position--;
       character.style.left = parseInt(character.style.left) - 100 + 'px';
     }
   }
 
-  function moveUp() {
-    let character = document.querySelector('.character');
+  function moveUp(user) {
+    let character = document.querySelector(`.${user}`);
     if (parseInt(character.style.top) > 0) {
       position = position - 6;
       character.style.top = parseInt(character.style.top) - 100 + 'px';
     }
   }
 
-  function moveDown() {
-    let character = document.querySelector('.character');
+  function moveDown(user) {
+    let character = document.querySelector(`.${user}`);
     if (parseInt(character.style.top) < 400) {
       position = position + 6;
       character.style.top = parseInt(character.style.top) + 100 + 'px';
