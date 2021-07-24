@@ -32,6 +32,7 @@ const startMenu = () => {
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
     userNameInput.style.backgroundColor = '#D9F0FF';
+    userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
     const practiceAreaTitle = document.createElement('h3');

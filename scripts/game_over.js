@@ -3,7 +3,7 @@
 //import {startContainer} from './startMenu.js';//
 
 const gameOver = () => {
-    //const username = startMenu.js -> startContainer -> userNameInput.text?//
+    const username = document.getElementById('userNameInput').value;
     //const finalScore = score.js -> scoreNumber.value//
     //const highScore = score.highScore.value?//
 
