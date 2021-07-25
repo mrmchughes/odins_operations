@@ -2,7 +2,7 @@ import moveCharacter from './moveCharacter.js';
 
 const character = (() => {
 
-  //Randomly spawn on an interior square of the board
+  // Randomly spawn on an interior square of the board
 
   const spawn = () => {
     let spawnSquares = [7, 8, 9, 10, 13, 16, 19, 20, 21, 22];
@@ -13,12 +13,21 @@ const character = (() => {
 
   // establishes avatar class
 
-  const createAvatar = (userName, marker, position) => ({ userName, marker, position });
-  let playerPosition = spawn();
+  const createAvatar = (userName, marker, position) => 
+    ({ userName, marker, position });
   let enemyPosition = spawn();
-  const player = createAvatar('Player', "url('../images/goldenmuncher_100.gif')", playerPosition);
-  const enemy = createAvatar('Enemy', "url('../images/enemy.gif')", enemyPosition);
-
+  let playerPosition = spawn();
+  const enemy = createAvatar(
+    'Enemy', 
+    "url('../images/enemy.gif')", 
+    enemyPosition
+  );
+  const player = createAvatar(
+    'Player', 
+    "url('../images/goldenmuncher_100.gif')", 
+    playerPosition
+  );
+  
   // places character on the grid
 
   const placeAvatar = (character) => {
@@ -39,6 +48,7 @@ const character = (() => {
   const createMuncher = (answerObj) => {
     answerObject = answerObj;
     let character = player;
+    console.log(character);
     const playerAvatar = placeAvatar(character);
     return playerAvatar;
   }
@@ -89,6 +99,7 @@ const character = (() => {
   // which determines if answer selection is correct
 
   const moveUser = (key, character) => {
+    console.log(typeof character);
     switch (key) {
       case 'ArrowRight':
         moveRight(character);
@@ -168,7 +179,7 @@ const character = (() => {
 
   // moves enemy every 3 seconds
 
-  function displayEnemy() {
+  function displayEnemy(speed) {
     setInterval(function() {
       let key = '';
       let user = enemy;
@@ -176,13 +187,10 @@ const character = (() => {
       let enemyPosition = moveUser(key, user);
       let playerPosition = player.position;
       enemyAttack(enemyPosition, playerPosition);
-    }, 3000);
+    }, speed);
   }
 
-  displayEnemy();
-
-
-  return { createMuncher, createEnemy, answerObject };
+  return { createMuncher, createEnemy, answerObject, displayEnemy };
 })();
 
 export default character;
