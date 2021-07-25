@@ -4,6 +4,8 @@ import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
 const startMenu = () => {
+
+  console.log('start menu');
   
   // creates header text
 
@@ -38,7 +40,8 @@ const startMenu = () => {
     const userNameInput = document.createElement('input');
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
-    userNameInput.style.backgroundColor = 'gray';
+    userNameInput.style.backgroundColor = '#D9F0FF';
+    userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
     // creates practice area button container

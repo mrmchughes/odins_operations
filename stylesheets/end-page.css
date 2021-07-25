@@ -1,0 +1,180 @@
+/* standard style reset */
+html,
+body,
+header,
+nav,
+h1,
+a,
+ul,
+li,
+strong,
+main,
+button,
+i,
+section,
+img,
+div,
+h2,
+h3,
+h4,
+h5,
+p,
+form,
+fieldset,
+label,
+input,
+textarea,
+span,
+article,
+footer,
+time,
+small,
+aside {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: darkblue;
+}
+
+button {
+  background-color: red;
+}
+
+h2 {
+  color: white;
+  font-family: monospace;
+  padding: 30px;
+}
+
+.main {
+  align-items: center;
+}
+
+/* start page styling */
+
+#title-header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(1, 14, 15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  line-height: 2;
+  font-family: arial, sans-serif;
+  text-shadow: 0 0 10px white, 0 0 10px whitesmoke;
+  border-style: none;
+  border-width: 0px;
+  border-color: #ccc;
+  border-radius: 0%;
+}
+
+#instructions {
+  text-align: center;
+}
+
+.user-name-input {
+  height: 40px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid hotpink;
+  border-bottom: 2px solid rgb(250, 155, 202);
+  border-top: 1px solid rgb(250, 155, 202);
+}
+
+#container {
+  text-align: center;
+}
+
+#practice-title,
+#difficulty-title {
+  margin: 10px;
+}
+
+.practice-container,
+.difficulty-container {
+  display: block;
+  align-items: center;
+}
+
+.begin-container {
+  display: block;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+}
+
+.reset-button {
+  width: 125px;
+  height: 50px;
+  font-family: arial, sans-serif;
+  font-size: larger;
+  margin-bottom: 20px;
+  margin-right: 3px;
+  margin-left: 3px;
+  display: inline-flex;
+  justify-content: space-evenly;
+  background-color: whitesmoke;
+  padding: 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  align-items: flex-end;
+  border: 1px solid hotpink;
+  border-bottom: 2px solid rgb(250, 155, 202);
+  border-top: 1px solid rgb(250, 155, 202);
+}
+
+.begin-button {
+  align-items: center;
+  float: center;
+}
+
+.practice-area:hover,
+.begin-button:hover,
+.difficulty-area:hover {
+  background-color: rgb(253, 165, 209);
+}
+
+#multiples,
+#easy {
+  flex: 1;
+  align-items: center;
+}
+
+#factors,
+#intermediate {
+  flex: 2;
+  align-items: center;
+}
+
+#primes,
+#hard {
+  flex: 3;
+  align-items: center;
+}

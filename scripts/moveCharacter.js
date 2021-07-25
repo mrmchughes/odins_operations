@@ -1,8 +1,8 @@
+import checkGameOver from './checkGameOver.js';
 import score from './score.js';
 
 const moveCharacter = (() => {
 
-  let answerCorrect;
   let selectedGrid;
   let beenSelected;
   let currentPosition;
@@ -10,7 +10,7 @@ const moveCharacter = (() => {
 
   const changeSelected = (position, answerObject) => {
 
-    answerCorrect = answerObject.numbersArray[position].isCorrect;
+    let answerCorrect = answerObject.numbersArray[position].isCorrect;
 
     // mutates array to indicate that square has been selected previously
 
@@ -21,6 +21,7 @@ const moveCharacter = (() => {
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
+    checkGameOver.checkLives(answerObject);
   }
 
   const moveResponse = (position, answerObject) => {
@@ -47,7 +48,9 @@ const moveCharacter = (() => {
 
   const selectSquare = () => {
 
-    if (answerCorrect) {
+    let correctAnswer = answerObj.numbersArray[currentPosition].isCorrect;
+
+    if (correctAnswer) {
       if (!beenSelected) { 
         score.changeScore(10);
         beenSelected = true;

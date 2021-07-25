@@ -1,3 +1,4 @@
+import gameOver from './game-over.js';
 import moveCharacter from './moveCharacter.js';
 
 const character = (() => {
@@ -124,8 +125,7 @@ const character = (() => {
 
   const enemyAttack = (enemyPosition, playerPosition) => {
     if (enemyPosition === playerPosition) {
-      // TODO: connect to Game Over page
-      console.log ('Game Over');
+      gameOver.endScreen();
     }
   }
 
