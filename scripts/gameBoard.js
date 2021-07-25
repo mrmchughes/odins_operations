@@ -19,7 +19,6 @@ const gameBoard = (() => {
   // Create a board to hold all the grid squares
 
   const drawBoard = (answerObj) => {
-    console.log('draw board');
     cssLoader.load('./stylesheets/game-board.css');
     const answerArray = answerObj.numbersArray;
     console.log(answerObj);
@@ -53,6 +52,7 @@ const gameBoard = (() => {
 
     //Append the character to the board
     board.appendChild(character.createMuncher(answerObj));
+    board.appendChild(character.createEnemy());
 
     // Append the board to the body
 

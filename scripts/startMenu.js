@@ -172,7 +172,7 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
-      gameController(practiceArea, difficulty);
+      gameController.startPlay(practiceArea, difficulty);
     });
   })();
 };
