@@ -1,6 +1,8 @@
 //import {score} from './score.js';//
 
-//import {startContainer} from './startMenu.js';//
+import {startContainer} from './startMenu.js';
+
+//when enemy attacks, trigger gameOver?//
 
 const gameOver = () => {
     const userName = document.getElementById('userNameInput').value;
