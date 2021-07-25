@@ -5,6 +5,8 @@ const moveCharacter = (() => {
   let answerCorrect;
   let selectedGrid;
   let beenSelected;
+  let currentPosition;
+  let answerObj;
 
   const changeSelected = (position, answerObject) => {
 
@@ -15,7 +17,7 @@ const moveCharacter = (() => {
     let newNumbersArray = {
       answer: answerObject.numbersArray[position].answer, 
       isCorrect: answerCorrect, 
-      selected: false,
+      selected: true,
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
@@ -35,8 +37,8 @@ const moveCharacter = (() => {
 
       selectedGrid.style.backgroundColor = 'rgb(250, 155, 202)';
       selectedGrid.style.color = 'black';
-
-      changeSelected(position, answerObject)
+      answerObj = answerObject;
+      currentPosition = position;
     }
   }  
 
@@ -50,6 +52,7 @@ const moveCharacter = (() => {
         score.changeScore(10);
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'hotpink';
+        changeSelected(currentPosition, answerObj);
 
       // TODO: add sound for correct choice
       }
@@ -58,6 +61,7 @@ const moveCharacter = (() => {
         score.changeScore(-5);
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'red';
+        changeSelected(currentPosition, answerObj);
 
         // TODO: add sound for incorrect choice
       }
