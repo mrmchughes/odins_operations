@@ -1,8 +1,12 @@
-import {score} from './score.js';
+// import {score} from './score.js';
 import {startMenu} from './startMenu.js';
 
-const gameOver = () => {
-    const userName = document.getElementById('userNameInput').value;
+const gameOver = (() => {
+
+    const endScreen = () => {
+      document.body.innerHTML = '';
+    }
+    // const userName = document.getElementById('userNameInput').value;
     //const finalScore = score.js -> scoreNumber.value//
     //const highScore = score.highScore.value?//
 
@@ -24,7 +28,11 @@ const gameOver = () => {
 
     resetButton.addEventListener('click', function(){
         startMenu();
+
     })
-};
+
+  return { endScreen };
+
+})();
 
 export default gameOver;

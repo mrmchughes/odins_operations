@@ -1,3 +1,4 @@
+import checkGameOver from './checkGameOver.js';
 import score from './score.js';
 
 const moveCharacter = (() => {
@@ -20,6 +21,7 @@ const moveCharacter = (() => {
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
+    checkGameOver.checkLives(answerObject);
   }
 
   const moveResponse = (position, answerObject) => {
