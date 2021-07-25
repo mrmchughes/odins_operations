@@ -1,6 +1,5 @@
-//import {score} from './score.js';//
-
-//import {startContainer} from './startMenu.js';//
+import {score} from './score.js';
+import {startMenu} from './startMenu.js';
 
 const gameOver = () => {
     const userName = document.getElementById('userNameInput').value;
@@ -27,3 +26,5 @@ const gameOver = () => {
         startMenu();
     })
 };
+
+export default gameOver;
