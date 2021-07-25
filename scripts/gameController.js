@@ -30,6 +30,7 @@ const gameController = (() => {
     const multiplesObj = generateMultiples(
       difficulty.maxRange
     );
+    console.log(multiplesObj);
     gameBoard.drawBoard(multiplesObj);
     character.displayEnemy(difficulty.speed);
   };

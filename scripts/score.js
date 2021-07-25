@@ -1,4 +1,5 @@
 import { cssLoader } from './cssLoader.js';
+cssLoader.load('./stylesheets/game-board.css');
 
 const score = (() => {
 
