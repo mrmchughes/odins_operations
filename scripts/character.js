@@ -1,12 +1,8 @@
 import moveCharacter from './moveCharacter.js';
 
-let character = (() => {
+const character = (() => {
 
-  const createAvatar = (userName, marker) => ({ userName, marker });
-  const player = createAvatar('Player', "url('../images/goldenmuncher_100.gif')");
-  const enemy = createAvatar('Enemy', "url('../images/enemy.gif')");
-
-  //Randomly spawn on an interior square of the board
+  // Randomly spawn on an interior square of the board
 
   const spawn = () => {
     let spawnSquares = [7, 8, 9, 10, 13, 16, 19, 20, 21, 22];
@@ -15,142 +11,186 @@ let character = (() => {
     return spawnSquare;
   };
 
-  // Keep track of the current index of the character
+  // establishes avatar class
 
-  let position;
+  const createAvatar = (userName, marker, position) => 
+    ({ userName, marker, position });
+  let enemyPosition = spawn();
+  let playerPosition = spawn();
+  const enemy = createAvatar(
+    'Enemy', 
+    "url('../images/enemy.gif')", 
+    enemyPosition
+  );
+  const player = createAvatar(
+    'Player', 
+    "url('../images/goldenmuncher_100.gif')", 
+    playerPosition
+  );
+  
+  // places character on the grid
+
+  const placeAvatar = (character) => {
+
+    let muncher = document.createElement('div');
+    muncher.classList.add(character.userName);
+    muncher.style.position = 'absolute';
+    muncher.style.left = (character.position % 6) * 100 + 'px';
+    muncher.style.top = Math.floor(character.position / 6) * 100 + 'px';
+    muncher.style.backgroundImage = character.marker;
+    return muncher;
+  };
+
+  // creates player avatar
+
   let answerObject;
 
-const placeAvatar = (character) => {
-
-  let muncher = document.createElement('div');
-  muncher.classList.add(character.userName);
-  console.log(muncher.classList);
-  muncher.style.position = 'absolute';
-  muncher.style.left = (position % 6) * 100 + 'px';
-  muncher.style.top = Math.floor(position / 6) * 100 + 'px';
-  muncher.style.backgroundImage = character.marker;
-  console.log(muncher);
-  return muncher;
-};
-
   const createMuncher = (answerObj) => {
-    position = spawn();
     answerObject = answerObj;
     let character = player;
+    console.log(character);
     const playerAvatar = placeAvatar(character);
     return playerAvatar;
   }
 
+  // creates enemy avatar
+
   const createEnemy = () => {
-    position = spawn();
     let character = enemy;
     const enemyAvatar = placeAvatar(character);
     return enemyAvatar;
   }
 
-  function moveRight(user) {
-    let character = document.querySelector(`.${user}`);
-    if (parseInt(character.style.left) < 500) {
-      position++;
-      character.style.left = parseInt(character.style.left) + 100 + 'px';
+  // moves selected character in designated direction
+
+  function moveRight(character) {
+    let user = document.querySelector(`.${character.userName}`);
+    if (parseInt(user.style.left) < 500) {
+      character.position++;
+      user.style.left = parseInt(user.style.left) + 100 + 'px';
     }
   }
 
-  function moveLeft(user) {
-    let character = document.querySelector(`.${user}`);
-    if (parseInt(character.style.left) > 0) {
-      position--;
-      character.style.left = parseInt(character.style.left) - 100 + 'px';
+  function moveLeft(character) {
+    let user = document.querySelector(`.${character.userName}`);
+    if (parseInt(user.style.left) > 0) {
+      character.position--;
+      user.style.left = parseInt(user.style.left) - 100 + 'px';
     }
   }
 
-  function moveUp(user) {
-    let character = document.querySelector(`.${user}`);
-    if (parseInt(character.style.top) > 0) {
-      position = position - 6;
-      character.style.top = parseInt(character.style.top) - 100 + 'px';
+  function moveUp(character) {
+    let user = document.querySelector(`.${character.userName}`);
+    if (parseInt(user.style.top) > 0) {
+      character.position = character.position - 6;
+      user.style.top = parseInt(user.style.top) - 100 + 'px';
     }
   }
 
-  function moveDown(user) {
-    let character = document.querySelector(`.${user}`);
-    if (parseInt(character.style.top) < 400) {
-      position = position + 6;
-      character.style.top = parseInt(character.style.top) + 100 + 'px';
+  function moveDown(character) {
+    let user = document.querySelector(`.${character.userName}`);
+    if (parseInt(user.style.top) < 400) {
+      character.position = character.position + 6;
+      user.style.top = parseInt(user.style.top) + 100 + 'px';
     }
   }
 
-  // moves selected avatar
+  // player avatar movement directs to moveCharacter module 
+  // which determines if answer selection is correct
 
-  const moveUser = (key, user) => {
+  const moveUser = (key, character) => {
+    console.log(typeof character);
     switch (key) {
-      case 'ArrowRight': //Right arrow key
-        moveRight(user);
-        console.log(position);
-        (user === 'Player') ? moveCharacter.moveResponse(position, answerObject): null;
-        break;
-      case 'ArrowLeft': //Left arrow key
-        moveLeft(user);
-        console.log(position);
-        (user === 'Player') ? moveCharacter.moveResponse(position, answerObject): null;
-        break;
-      case 'ArrowUp': //Up arrow key
-        moveUp(user);
-        console.log(position);
-        (user === 'Player') ? moveCharacter.moveResponse(position, answerObject): null;
-        break;
-      case 'ArrowDown': //Down arrow key
-        moveDown(user);
-        console.log(position);
-        (user === 'Player') ? moveCharacter.moveResponse(position, answerObject): null;
-        break;
+      case 'ArrowRight':
+        moveRight(character);
+        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        return character.position;
+      case 'ArrowLeft': 
+        moveLeft(character);
+        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        return character.position;
+      case 'ArrowUp': 
+        moveUp(character);
+        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        return character.position;
+      case 'ArrowDown':
+        moveDown(character);
+        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        return character.position;
     }
   };
+
+  // ends game when enemy attack is successful
+
+  const enemyAttack = (enemyPosition, playerPosition) => {
+    if (enemyPosition === playerPosition) {
+      // TODO: connect to Game Over page
+      console.log ('Game Over');
+    }
+  }
 
   // moves player avatar upon keystroke
 
   document.addEventListener('keydown', function (e) {
     let key = e.key;
-    let user = character.userName;
-    moveUser(key, user);
+    let character = player;
+    let playerPosition = moveUser(key, character);
+    let enemyPosition = enemy.position;
+    enemyAttack(enemyPosition, playerPosition);
   });
+
+  // moves player with adjacent square clicked
+
+  // TODO: improve responsiveness of click function but widening grid area
+
+  document.addEventListener('click', function (e) {
+    const dataIndex = parseInt(e.target.dataset.index);
+    let key;
+    let character = player;
+
+    if (player.position + 1 === dataIndex) {
+      key = 'ArrowRight';
+    } else if (player.position - 1 === dataIndex) {
+      key = 'ArrowLeft';
+    } else if (player.position - 6 === dataIndex) {
+      key = 'ArrowUp';
+    } else if (player.position + 6 === dataIndex) {
+      key = 'ArrowDown';
+    }
+
+    let playerPosition = moveUser(key, character);
+    let enemyPosition = enemy.position;
+    enemyAttack(enemyPosition, playerPosition);
+  })
 
   const moveEnemy = () => {
     let randomMovement = Math.floor(Math.random() * 4) + 1;
-    console.log(randomMovement);
     switch (randomMovement) {
-      case 1: //Right arrow key
+      case 1:
         return 'ArrowRight';
-        break;
-      case 2: //Left arrow key
+      case 2: 
         return 'ArrowLeft';
-        break;
-      case 3: //Up arrow key
+      case 3: 
         return 'ArrowUp';
-        break;
       case 4:
         return 'ArrowDown';
-        break;
     }
   };
 
   // moves enemy every 3 seconds
 
-  function displayEnemy() {
+  function displayEnemy(speed) {
     setInterval(function() {
       let key = '';
-      let user = enemy.userName;
+      let user = enemy;
       key = moveEnemy();
-      console.log(`move enemy ${key}`);
-      moveUser(key, user);
-      // TODO: return position number and check that against the position of the player avatar
-    }, 3000);
+      let enemyPosition = moveUser(key, user);
+      let playerPosition = player.position;
+      enemyAttack(enemyPosition, playerPosition);
+    }, speed);
   }
 
-  displayEnemy();
-
-
-  return { createMuncher, createEnemy, position, answerObject };
+  return { createMuncher, createEnemy, answerObject, displayEnemy };
 })();
 
 export default character;

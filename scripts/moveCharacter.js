@@ -5,6 +5,8 @@ const moveCharacter = (() => {
   let answerCorrect;
   let selectedGrid;
   let beenSelected;
+  let currentPosition;
+  let answerObj;
 
   const changeSelected = (position, answerObject) => {
 
@@ -15,7 +17,7 @@ const moveCharacter = (() => {
     let newNumbersArray = {
       answer: answerObject.numbersArray[position].answer, 
       isCorrect: answerCorrect, 
-      selected: false,
+      selected: true,
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
@@ -35,40 +37,50 @@ const moveCharacter = (() => {
 
       selectedGrid.style.backgroundColor = 'rgb(250, 155, 202)';
       selectedGrid.style.color = 'black';
-
-      changeSelected(position, answerObject)
+      answerObj = answerObject;
+      currentPosition = position;
     }
   }  
 
   // changes grid square based on whether correct or incorrect selection is made
   // score will only change if selected is marked as false
 
-  document.addEventListener('keypress', function (e) {
+  const selectSquare = () => {
 
-    // const position = selectedGrid.dataset.index;
+    if (answerCorrect) {
+      if (!beenSelected) { 
+        score.changeScore(10);
+        beenSelected = true;
+        selectedGrid.style.backgroundColor = 'hotpink';
+        changeSelected(currentPosition, answerObj);
 
-    if (e.key === 'Enter') {
-        if (answerCorrect) {
-          if (!beenSelected) { 
-            score.changeScore(10);
-            beenSelected = true;
-            selectedGrid.style.backgroundColor = 'hotpink';
-
-          // TODO: add sound for correct choice
-          }
-        } else {
-          if (!beenSelected) {
-            score.changeScore(-5);
-            beenSelected = true;
-            selectedGrid.style.backgroundColor = 'red';
-
-            // TODO: add sound for incorrect choice
-          }
-        }
+      // TODO: add sound for correct choice
+      }
     } else {
-      selectedGrid.style.backgroundColor = 'rgb(250, 155, 202)';
+      if (!beenSelected) {
+        score.changeScore(-5);
+        beenSelected = true;
+        selectedGrid.style.backgroundColor = 'red';
+        changeSelected(currentPosition, answerObj);
+
+        // TODO: add sound for incorrect choice
+      }
+    }
+  }
+
+  // selects correct answer by either pressing space bar or enter key
+
+  document.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter' || event.code === 'Space') {
+      selectSquare();
     }
   });
+
+  // selects correct answer upon double mouseclick
+
+  document.addEventListener('dblclick', function () {
+    selectSquare();
+  })
 
   return { moveResponse };
 
