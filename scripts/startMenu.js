@@ -38,7 +38,8 @@ const startMenu = () => {
     const userNameInput = document.createElement('input');
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
-    userNameInput.style.backgroundColor = 'gray';
+    userNameInput.style.backgroundColor = '#D9F0FF';
+    userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
     // creates practice area button container
