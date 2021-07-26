@@ -38,7 +38,7 @@ const startMenu = () => {
     const userNameInput = document.createElement('input');
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
-    userNameInput.style.backgroundColor = '#D9F0FF';
+    userNameInput.style.backgroundColor = '#EDE6F2';
     userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
