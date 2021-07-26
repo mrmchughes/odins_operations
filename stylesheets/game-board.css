@@ -51,7 +51,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: darkblue;
+  background-color: #8acdea;
 }
 
 h2 {
@@ -88,7 +88,8 @@ h2 {
   background: none;
 }
 
-.Player, .Enemy {
+.Player,
+.Enemy {
   height: 100px;
   width: 100px;
   z-index: 3;
@@ -100,7 +101,7 @@ h2 {
 }
 
 #display-score {
-  color:whitesmoke;
+  color: whitesmoke;
   font-size: 18px;
   margin-right: 28px;
   float: right;
