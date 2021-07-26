@@ -6,10 +6,24 @@ const nextLevel = (() => {
 
   const goToNextLevel = (answerObject) => {
 
-    const practiceArea = answerObject.type;
-    const level = 'intermediate';
+    // sets difficulty and practice area to the same as previously selected;
 
+    const practiceArea = answerObject.type;
+    const level = answerObject.difficulty.name;
+
+    // clears header and board
+
+    const header = document.getElementById('gameboard-header');
+    const titleCard = document.getElementById('title-card');
+    header.removeChild(titleCard);
+
+    const board = document.getElementById('game-board');
+    document.body.removeChild(board);
+
+    // draws new board
+    
     gameController.startPlay(practiceArea, level);
+
   }
 
   const checkComplete = (answerObject) => {

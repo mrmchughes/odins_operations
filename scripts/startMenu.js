@@ -4,8 +4,6 @@ import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
 const startMenu = () => {
-
-  console.log('start menu');
   
   // creates header text
 
@@ -175,6 +173,7 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
+      document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
   })();

@@ -19,14 +19,15 @@ const score = (() => {
     // if score is displayed, remove old score
 
     if (typeof displayScore === 'object') {
+      console.log(displayScore);
       header.removeChild(displayScore);
-    };
+    }
 
     // displays current score
 
     displayScore = document.createElement('h4');
-    console.log(typeof displayScore);
     displayScore.id = 'display-score';
+    displayScore.value = scoreNumber;
     displayScore.innerText = 'Score: ' + scoreNumber;
     header.appendChild(displayScore);
 
