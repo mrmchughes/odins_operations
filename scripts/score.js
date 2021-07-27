@@ -19,7 +19,6 @@ const score = (() => {
     // if score is displayed, remove old score
 
     if (typeof displayScore === 'object') {
-      console.log(displayScore);
       header.removeChild(displayScore);
     }
 
@@ -32,8 +31,14 @@ const score = (() => {
     header.appendChild(displayScore);
 
   }
+
+  // returns current score for use in game over screen
+
+  const getScore = () => {
+    return scoreNumber;
+  }
   
-  return { changeScore };
+  return { changeScore, getScore };
 
 })();
 
