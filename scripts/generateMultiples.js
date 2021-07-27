@@ -1,5 +1,5 @@
 
-const generateMultiples = (maxMultiplier) => {
+const generateMultiples = (difficulty) => {
 
   // initiates variables
 
@@ -7,6 +7,7 @@ const generateMultiples = (maxMultiplier) => {
   let answer;
   let isMultiple;
   let numbersArray = [];
+  const maxMultiplier = difficulty.maxRange;
 
   const base = Math.floor(Math.random() * (maxMultiplier - 1)) + 2;
 
@@ -56,7 +57,7 @@ const generateMultiples = (maxMultiplier) => {
     numbersArray.push(numObject);
   }
 
-  return { type, base, numbersArray };
+  return { type, base, difficulty, numbersArray };
 };
 
 export { generateMultiples };

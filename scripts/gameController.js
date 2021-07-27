@@ -28,9 +28,8 @@ const gameController = (() => {
 
   const startMultiples = (difficulty) => {
     const multiplesObj = generateMultiples(
-      difficulty.maxRange
+      difficulty
     );
-    console.log(multiplesObj);
     gameBoard.drawBoard(multiplesObj);
     character.displayEnemy(difficulty.speed);
   };
@@ -52,7 +51,7 @@ const gameController = (() => {
   // loads game board for play
 
   const startPlay = (practiceArea, level) => {
-    document.body.innerHTML = '';
+
     let difficulty;
     switch (level) {
       case 'easy':
