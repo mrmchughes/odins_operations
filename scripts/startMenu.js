@@ -38,7 +38,8 @@ const startMenu = () => {
     const userNameInput = document.createElement('input');
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
-    userNameInput.style.backgroundColor = 'gray';
+    userNameInput.style.backgroundColor = '#EDE6F2';
+    userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
     // creates practice area button container
@@ -172,6 +173,7 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
+      document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
   })();

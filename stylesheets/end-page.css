@@ -51,23 +51,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #8acdea;
+  background-color: darkblue;
+}
+
+button {
+  background-color: red;
 }
 
 h2 {
-  color: rgb(1, 14, 15);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  text-align: center;
-  line-height: 2;
-  font-family: arial, sans-serif;
-  text-shadow: 0 0 10px white, 0 0 10px whitesmoke;
-  border-style: none;
-  border-width: 0px;
-  border-color: #ccc;
-  border-radius: 0%;
+  color: white;
+  font-family: monospace;
   padding: 30px;
 }
 
@@ -136,9 +129,7 @@ h1 {
   position: absolute;
 }
 
-.practice-area,
-.begin-button,
-.difficulty {
+.reset-button {
   width: 125px;
   height: 50px;
   font-family: arial, sans-serif;
