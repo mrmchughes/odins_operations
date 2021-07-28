@@ -61,10 +61,37 @@ const gameOver = (() => {
     highScore.testLocalStorage(highScores, savedScores);
     addHighScore(highScores);
 
+    // sorts and returns top 10 scores by changing object to array,
+    // sorting the array, and then converting it back to an object of 10 results
+
+    function sortScores(highScores) {
+      let sortableScores = [];
+      for (let i = 0; i < highScores.length; i++) {
+        sortableScores.push([highScores[i].name, highScores[i].points]);
+      }
+
+      sortableScores.sort(function(a, b) {
+        return b[1] - a[1];
+      })
+
+      // creates object with top 10 array results
+
+      let sortedScores = [];
+      for (let j = 0; j <10; j++) {
+        let name = sortableScores[j][0];
+        let points = sortableScores[j][1];
+        const newScore = new Score(name, points);
+        sortedScores.push(newScore);
+     }
+
+    return sortedScores;
+  }
+
     // renders list of high scores 
-    // TODO: renders list of top 10 high score in order
   
     function renderHighScores(highScores) {
+      highScores = sortScores(highScores);
+      highScore.placeInStorage(highScores);
       highScores.forEach((element) => render(element.name, element.points));
     
       function render() {
@@ -93,7 +120,6 @@ const gameOver = (() => {
     
       highScores.push(newScore);
       highScores.forEach((element) => (savedScores = element));
-      highScore.placeInStorage(highScores);
       renderHighScores(highScores);
     }
   }

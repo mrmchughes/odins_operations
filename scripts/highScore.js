@@ -10,7 +10,6 @@ const highScore = (() => {
         
   const retrieveStorage = function (highScores) {
     const savedScores = JSON.parse(localStorage.getItem('savedScores'));
-    console.log(savedScores);
     savedScores.forEach((element) => highScores.push(element));
   };
         
