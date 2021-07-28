@@ -25,7 +25,7 @@ const gameOver = (() => {
 
     let highScores = [];
     let savedScores = [];
-    const placeHolderUserName = 'Test User';
+    const userName = startMenu.getUserName();
     const finalScore = score.getScore();
 
     // const userName = document.getElementById('userNameInput').value;
@@ -39,7 +39,7 @@ const gameOver = (() => {
 
     const finalScoreDiv = document.createElement('p');
     finalScoreDiv.style.padding = '10px';
-    finalScoreDiv.innerHTML = `Congrats, ${placeHolderUserName}, your final score is ${finalScore}.`; //Congrats, ${username}, your final score was ${finalScore.value}.//
+    finalScoreDiv.innerHTML = `Congrats, ${userName}, your final score is ${finalScore}.`; //Congrats, ${username}, your final score was ${finalScore.value}.//
     document.body.appendChild(finalScoreDiv);
 
     // const highScoreDiv = document.createElement('p');
@@ -113,7 +113,7 @@ const gameOver = (() => {
 
     function addHighScore(highScores) {
 
-      const name = placeHolderUserName;
+      const name = userName;
       const points = finalScore;
 
       const newScore = new Score(name, points);
