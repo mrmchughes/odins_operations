@@ -49,7 +49,6 @@ const character = (() => {
   const createMuncher = (answerObj) => {
     answerObject = answerObj;
     let character = player;
-    console.log(character);
     const playerAvatar = placeAvatar(character);
     return playerAvatar;
   }
@@ -100,7 +99,6 @@ const character = (() => {
   // which determines if answer selection is correct
 
   const moveUser = (key, character) => {
-    console.log(typeof character);
     switch (key) {
       case 'ArrowRight':
         moveRight(character);
