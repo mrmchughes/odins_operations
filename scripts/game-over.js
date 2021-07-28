@@ -1,6 +1,6 @@
 import score from './score.js';
 import highScore from './highScore.js';
-import { startMenu } from './startMenu.js';
+import startMenu from './startMenu.js';
 import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/end-page.css');
 
