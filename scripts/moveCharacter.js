@@ -49,13 +49,13 @@ const moveCharacter = (() => {
   // changes grid square based on whether correct or incorrect selection is made
   // score will only change if selected is marked as false
 
-  const selectSquare = () => {
+  const selectSquare = (difficulty) => {
 
     let correctAnswer = answerObj.numbersArray[currentPosition].isCorrect;
 
     if (correctAnswer) {
       if (!beenSelected) { 
-        score.changeScore(10);
+        score.changeScore(difficulty.baseScore);
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'hotpink';
         changeSelected(currentPosition, answerObj);
@@ -64,7 +64,10 @@ const moveCharacter = (() => {
       }
     } else {
       if (!beenSelected) {
-        score.changeScore(-5);
+
+        // incorrect answer results in a reduction by half credit
+
+        score.changeScore(-(difficulty.baseScore/2));
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'red';
         changeSelected(currentPosition, answerObj);
@@ -78,14 +81,14 @@ const moveCharacter = (() => {
 
   document.addEventListener('keypress', function (event) {
     if (event.key === 'Enter' || event.code === 'Space') {
-      selectSquare();
+      selectSquare(answerObj.difficulty);
     }
   });
 
   // selects correct answer upon double mouseclick
 
   document.addEventListener('dblclick', function () {
-    selectSquare();
+    selectSquare(answerObj.difficulty);
   })
 
   return { moveResponse };
