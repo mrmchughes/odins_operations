@@ -176,6 +176,13 @@ const startMenu = () => {
       document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
+
+    const getUserName = () => {
+      return userNameInput;
+    }
+
+    return {userNameInput, getUserName};
+
   })();
 };
 
