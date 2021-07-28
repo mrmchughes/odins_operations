@@ -20,19 +20,25 @@ const score = (() => {
 
     if (typeof displayScore === 'object') {
       header.removeChild(displayScore);
-    };
+    }
 
     // displays current score
 
     displayScore = document.createElement('h4');
-    console.log(typeof displayScore);
     displayScore.id = 'display-score';
+    displayScore.value = scoreNumber;
     displayScore.innerText = 'Score: ' + scoreNumber;
     header.appendChild(displayScore);
 
   }
+
+  // returns current score for use in game over screen
+
+  const getScore = () => {
+    return scoreNumber;
+  }
   
-  return { changeScore };
+  return { changeScore, getScore };
 
 })();
 

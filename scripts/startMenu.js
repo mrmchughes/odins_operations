@@ -4,8 +4,6 @@ import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
 const startMenu = () => {
-
-  console.log('start menu');
   
   // creates header text
 
@@ -40,7 +38,7 @@ const startMenu = () => {
     const userNameInput = document.createElement('input');
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
-    userNameInput.style.backgroundColor = '#D9F0FF';
+    userNameInput.style.backgroundColor = '#EDE6F2';
     userNameInput.id = 'userNameInput';
     container.appendChild(userNameInput);
 
@@ -175,6 +173,7 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
+      document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
   })();

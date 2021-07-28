@@ -1,29 +1,29 @@
-const highScore = () => {
+const highScore = (() => {
 
   // if user is new on this device, create local storage on this device
 
-  const populateStorage = function (myScore) {
-    localStorage.setItem('highScoreList', myScore);
+  const populateStorage = function (savedScores) {
+    localStorage.setItem('savedScores', savedScores);
   };
         
   // retrieve local storage stored on device
         
-  const retrieveStorage = function (myScore) {
-    const highScoreList = JSON.parse(localStorage.getItem('highScoreList'));
-    highScoreList.forEach((element) => myScore.push(element));
+  const retrieveStorage = function (highScores) {
+    const savedScores = JSON.parse(localStorage.getItem('savedScores'));
+    savedScores.forEach((element) => highScores.push(element));
   };
         
   // add to do list to local storage
     
-  const placeInStorage = function (myScore) {
-    localStorage.setItem('highScoreList', JSON.stringify(myScore));
+  const placeInStorage = function (highScores) {
+    localStorage.setItem('savedScores', JSON.stringify(highScores));
   };
 
   // tests local storage and decides what to do based on those results
   
   const testLocalStorage = (
-    myScore,
-    highScoreList,
+    highScores,
+    savedScores,
   ) => {
     
     // determine if local storage is available on this device
@@ -50,17 +50,17 @@ const highScore = () => {
     };
 
     if (storageAvailable('localStorage')) {
-      if (!localStorage.getItem('mySavedList')) {
-        populateStorage(myScore, highScoreList);
+      if (!localStorage.getItem('savedScores')) {
+        populateStorage(highScores, savedScores);
       } else {
-        retrieveStorage(myScore);
+        retrieveStorage(highScores);
       }
     } else {
       alert('List can not be saved to device.');
     }
   }
 
-  return { placeInStorage, testLocalStorage }
-}
+  return { placeInStorage, retrieveStorage, testLocalStorage }
+})();
   
   export default highScore;
