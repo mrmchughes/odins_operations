@@ -163,6 +163,11 @@ const startMenu = (() => {
     beginContainer.className = 'begin-container';
     container.appendChild(beginContainer);
 
+    const instructions = document.createElement('div');
+    instructions.className = 'instructions';
+    instructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter or Space or double click.'
+    beginContainer.appendChild(instructions);
+
     const beginGame = document.createElement('button');
     beginGame.innerHTML = 'Begin!';
     beginGame.className = 'begin-button';
