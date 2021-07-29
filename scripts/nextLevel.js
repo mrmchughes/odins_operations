@@ -12,11 +12,9 @@ const nextLevel = (() => {
     const level = answerObject.difficulty.name;
 
     // clears header and board
-
+ 
     const header = document.getElementById('gameboard-header');
-    const titleCard = document.getElementById('title-card');
-    header.removeChild(titleCard);
-
+    document.body.removeChild(header);
     const board = document.getElementById('game-board');
     document.body.removeChild(board);
 

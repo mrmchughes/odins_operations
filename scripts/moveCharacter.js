@@ -22,7 +22,6 @@ const moveCharacter = (() => {
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
-    console.log(answerObject.type);
     checkGameOver.checkLives(answerObject);
     nextLevel.checkComplete(answerObject);
   }
