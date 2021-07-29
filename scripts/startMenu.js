@@ -170,27 +170,20 @@ const startMenu = (() => {
     beginContainer.appendChild(beginGame);
 
     const beginButton = document.getElementById('begin');
+
     beginButton.addEventListener('click', function () {
-
-      newName = document.getElementById('userNameInput').value;
-
+      newName = document.getElementById('userName').value;
       document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
 
-  })();
+  }
 
-  let newName = 'Player';
-  const getUserName = () => {
-      return userNameInput;
-    }
+  const getUserName = (() => {
+      return newName;
+    })
 
-    return {getUserName};
-};
-
-  };
-
-  // returns user name value
-
+  return { getUserName, drawHeader, startContainer };
+})();
 
 export default startMenu;
