@@ -1,6 +1,7 @@
 import score from './score.js';
 import highScore from './highScore.js';
 import startMenu from './startMenu.js';
+import character from './character.js';
 import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/end-page.css');
 
@@ -11,6 +12,7 @@ const gameOver = (() => {
     // page clear
 
     document.body.innerHTML = '';
+    character.unmountEnemy();
 
     // adds Score class for high score list
 

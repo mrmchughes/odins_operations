@@ -175,10 +175,12 @@ const character = (() => {
     }
   };
 
-  // moves enemy every 3 seconds
+  // moves enemy at a speed determined by the difficulty level
+
+  let move;
 
   function displayEnemy(speed) {
-    setInterval(function() {
+    move = setInterval(function() {
       let key = '';
       let user = enemy;
       key = moveEnemy();
@@ -188,7 +190,13 @@ const character = (() => {
     }, speed);
   }
 
-  return { createMuncher, createEnemy, answerObject, displayEnemy };
+  // stops enemy from moving at end of game
+
+  function unmountEnemy () {
+    clearInterval(move);
+  }
+
+  return { createMuncher, createEnemy, answerObject, displayEnemy, unmountEnemy };
 })();
 
 export default character;
