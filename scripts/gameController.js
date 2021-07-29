@@ -38,14 +38,14 @@ const gameController = (() => {
   };
 
   const startFactors = (difficulty) => {
-    const factorsObj = generateFactors(difficulty.maxRange);
+    const factorsObj = generateFactors(difficulty);
     gameBoard.drawBoard(factorsObj);
     character.displayEnemy(difficulty.speed);
   };
 
   const startPrimes = (difficulty) => {
     const lowerLimit = 1;
-    const upperLimit = difficulty.maxRange * (Math.floor(Math.random() * 5) + 1);
+    const upperLimit = difficulty * (Math.floor(Math.random() * 5) + 1);
     const primesObject = generatePrimes(lowerLimit, upperLimit);
     gameBoard.drawBoard(primesObject);
     character.displayEnemy(difficulty.speed);

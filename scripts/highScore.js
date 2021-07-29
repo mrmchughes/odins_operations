@@ -1,32 +1,9 @@
 const highScore = (() => {
 
-  // const createHighScoreList = function () {
-  //   let highScores = [];
-  //   class Score {
-  //     constructor(name, points) {
-  //       this.name = name;
-  //       this.points = points;
-  //     }
-  //   }
-
-  //   for (let i = 0; i < 10; i++) {
-  //   const name = 'Mighty Monster';
-  //   const points = 100 * i;
-
-  //   const newScore = new Score(name, points);
-  
-  //   highScores.push(newScore);
-  //   }
-  //   console.log(highScores);
-  //   return highScores;
-  // }
-
   // if user is new on this device, create local storage on this device
 
   const populateStorage = function (savedScores) {
     localStorage.setItem('savedScores', savedScores);
-    // let highScores = createHighScoreList();
-    // placeInStorage(highScores);
   };
         
   // retrieve local storage stored on device
@@ -79,7 +56,7 @@ const highScore = (() => {
         retrieveStorage(highScores);
       }
     } else {
-      alert('List can not be saved to device.');
+      console.log('High scores can not be saved to device.');
     }
   }
 
