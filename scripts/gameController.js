@@ -7,23 +7,26 @@ import character from './character.js';
 const gameController = (() => {
 
   const createDifficulty = 
-   (name, maxRange, speed) => 
-   ({ name, maxRange, speed });
+   (name, maxRange, speed, baseScore) => 
+   ({ name, maxRange, speed, baseScore });
 
   const easy = createDifficulty(
     'easy', 
     5, 
     5000,
+    10,
   );
   const intermediate = createDifficulty(
     'intermediate', 
     10, 
     3000,
+    20,
   );
   const hard = createDifficulty(
     'hard',
     12,
     1000,
+    30,
   )
 
   const startMultiples = (difficulty) => {

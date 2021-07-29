@@ -7,6 +7,7 @@ const score = (() => {
 
   let scoreNumber = 0;
   let displayScore;
+  let scoreHeader;
 
   const changeScore = (change) => {
 
@@ -14,12 +15,16 @@ const score = (() => {
 
     scoreNumber = scoreNumber + change;
 
-    const header =  document.getElementById('gameboard-header');
-
     // if score is displayed, remove old score
 
     if (typeof displayScore === 'object') {
-      header.removeChild(displayScore);
+      scoreHeader.removeChild(displayScore);
+    }
+ 
+    if (typeof scoreHeader == 'undefined') {
+      scoreHeader =  document.createElement('div');
+      scoreHeader.id = 'score-header';
+      document.body.appendChild(scoreHeader);
     }
 
     // displays current score
@@ -28,7 +33,7 @@ const score = (() => {
     displayScore.id = 'display-score';
     displayScore.value = scoreNumber;
     displayScore.innerText = 'Score: ' + scoreNumber;
-    header.appendChild(displayScore);
+    scoreHeader.appendChild(displayScore);
 
   }
 

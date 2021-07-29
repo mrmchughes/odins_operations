@@ -3,11 +3,13 @@ import { gameController } from './gameController.js';
 import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
-const startMenu = () => {
+const startMenu = (() => {
+
+  let newName = 'Player';
   
   // creates header text
 
-  const drawHeader = (() => {
+  const drawHeader = () => {
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
@@ -18,15 +20,11 @@ const startMenu = () => {
     instructions.innerText = 'Select Game Options';
     instructions.id = 'instructions';
     header.appendChild(instructions);
-  })();
-
-  function pageDirect() {
-    console.log('page direct');
-  }
+  };
 
   // creates container with play options
 
-  const startContainer = (() => {
+  const startContainer = () => {
     const container = document.querySelector('#container');
 
     // creates input for players name
@@ -39,7 +37,7 @@ const startMenu = () => {
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
     userNameInput.style.backgroundColor = '#EDE6F2';
-    userNameInput.id = 'userNameInput';
+    userNameInput.id = 'userName';
     container.appendChild(userNameInput);
 
     // creates practice area button container
@@ -173,7 +171,9 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
+
       newName = document.getElementById('userNameInput').value;
+
       document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
@@ -188,4 +188,9 @@ const startMenu = () => {
     return {getUserName};
 };
 
-export { startMenu };
+  };
+
+  // returns user name value
+
+
+export default startMenu;
