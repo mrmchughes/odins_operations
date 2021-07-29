@@ -26,7 +26,7 @@ const gameOver = (() => {
     let highScores = [];
     let savedScores = [];
     //works with set value, getUserName not function?
-    const userName = 'Test User'; //startMenu.getUserName();
+    const userName = startMenu.getUserName();
     const finalScore = score.getScore();
 
     // const userName = document.getElementById('userNameInput').value;
