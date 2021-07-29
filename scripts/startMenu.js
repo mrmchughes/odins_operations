@@ -173,17 +173,19 @@ const startMenu = () => {
 
     const beginButton = document.getElementById('begin');
     beginButton.addEventListener('click', function () {
+      newName = document.getElementById('userNameInput').value;
       document.body.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
 
-    const getUserName = () => {
+  })();
+
+  let newName = 'Player';
+  const getUserName = () => {
       return userNameInput;
     }
 
-    return {userNameInput, getUserName};
-
-  })();
+    return {getUserName};
 };
 
 export { startMenu };
