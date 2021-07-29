@@ -57,13 +57,35 @@ const gameOver = (() => {
         startMenu();
     })
 
+    // creates default high score list
+
+    const createHighScoreList = () => {
+      for (let i = 0; i < 10; i++) {
+        const name = 'Mighty Monster';
+        const points = 100 * i;
+        const newScore = new Score(name, points);
+        highScores.push(newScore);
+        }
+      highScore.placeInStorage(highScores);
+      return highScores;
+    }
+
     // tests and retrieves high scores from local storage
 
     highScore.testLocalStorage(highScores, savedScores);
+
+    // if there is no high score list in local storage, creates default list
+
+    if (highScores.length === 0) {
+      highScores = createHighScoreList();
+    }
+
     addHighScore(highScores);
 
     // sorts and returns top 10 scores by changing object to array,
     // sorting the array, and then converting it back to an object of 10 results
+
+    // TODO: sort scores with first score
 
     function sortScores(highScores) {
       let sortableScores = [];
