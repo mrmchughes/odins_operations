@@ -54,7 +54,8 @@ const gameOver = (() => {
     document.body.appendChild(resetButton);
 
     resetButton.addEventListener('click', function(){
-        startMenu();
+        startMenu.drawHeader();
+        startMenu.startContainer();
     })
 
     // creates default high score list
@@ -84,8 +85,6 @@ const gameOver = (() => {
 
     // sorts and returns top 10 scores by changing object to array,
     // sorting the array, and then converting it back to an object of 10 results
-
-    // TODO: sort scores with first score
 
     function sortScores(highScores) {
       let sortableScores = [];

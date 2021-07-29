@@ -11,6 +11,7 @@ const startMenu = (() => {
 
   const drawHeader = () => {
     const header = document.querySelector('#header');
+    console.log(header);
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
     titleHeader.id = 'title-header';
