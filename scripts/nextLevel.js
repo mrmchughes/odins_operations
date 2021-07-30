@@ -19,6 +19,8 @@ const nextLevel = (() => {
     document.body.removeChild(board);
 
     // draws new board
+
+    // TODO: next level should be of same practice area
     
     gameController.startPlay(practiceArea, level);
 
