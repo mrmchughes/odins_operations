@@ -55,6 +55,8 @@ const gameController = (() => {
 
   const startPlay = (practiceArea, level) => {
 
+    practiceArea = practiceArea.toLowerCase();
+
     let difficulty;
     switch (level) {
       case 'easy':
