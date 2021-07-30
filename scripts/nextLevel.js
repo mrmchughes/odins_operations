@@ -10,6 +10,7 @@ const nextLevel = (() => {
 
     const practiceArea = answerObject.type;
     const level = answerObject.difficulty.name;
+    console.log(practiceArea, level);
 
     // clears header and board
  
@@ -20,8 +21,6 @@ const nextLevel = (() => {
 
     // draws new board
 
-    // TODO: next level should be of same practice area
-    
     gameController.startPlay(practiceArea, level);
 
   }
