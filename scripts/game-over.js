@@ -9,11 +9,43 @@ const gameOver = (() => {
 
   const endScreen = () => {
 
-    // page clear
+    // defintes variables
+  
+    const userName = startMenu.getUserName();
+    const finalScore = score.getScore();
 
-    document.body.innerHTML = '';
+    // page clear and turn off enemy functioning
+
+    const gameboardHeader = document.getElementById('gameboard-header');
+    const board = document.getElementById('game-board');
+    document.body.removeChild(gameboardHeader);
+    document.body.removeChild(board);
     character.unmountEnemy();
 
+    const header = document.getElementById('header');
+    const container = document.getElementById('container');
+
+    const headerContent = document.createElement('div');
+    headerContent.id = 'header-content';
+
+    const gameOverInstructions = document.createElement('p');
+    gameOverInstructions.style.padding = '10px';
+    gameOverInstructions.innerHTML = 'Sorry, but that is a game over. If you would like to play again, please press the reset button. Otherwise, you can close the game.';
+    headerContent.appendChild(gameOverInstructions);
+
+    const finalScoreDiv = document.createElement('p');
+    finalScoreDiv.style.padding = '10px';
+    finalScoreDiv.innerHTML = `Congrats, ${userName}, your final score is ${finalScore}.`; //Congrats, ${username}, your final score was ${finalScore.value}.//
+    headerContent.appendChild(finalScoreDiv);
+
+    const resetButton = document.createElement('button');
+    resetButton.innerText = 'Reset Game';
+    resetButton.className = 'reset-button';
+    resetButton.id = 'reset-button';
+    headerContent.appendChild(resetButton);
+
+    header.appendChild(headerContent);
+    
     // adds Score class for high score list
 
     class Score {
@@ -23,42 +55,8 @@ const gameOver = (() => {
       }
     }
 
-    // defintes variables
-
     let highScores = [];
     let savedScores = [];
-    //works with set value, getUserName not function?
-    const userName = startMenu.getUserName();
-    const finalScore = score.getScore();
-
-    // const userName = document.getElementById('userNameInput').value;
-    //const finalScore = score.js -> scoreNumber.value//
-    //const highScore = score.highScore.value?//
-
-    const gameOverInstructions = document.createElement('p');
-    gameOverInstructions.style.padding = '10px';
-    gameOverInstructions.innerHTML = 'Sorry, but that is a game over. If you would like to play again, please press the reset button. Otherwise, you can close the game.';
-    document.body.appendChild(gameOverInstructions);
-
-    const finalScoreDiv = document.createElement('p');
-    finalScoreDiv.style.padding = '10px';
-    finalScoreDiv.innerHTML = `Congrats, ${userName}, your final score is ${finalScore}.`; //Congrats, ${username}, your final score was ${finalScore.value}.//
-    document.body.appendChild(finalScoreDiv);
-
-    // const highScoreDiv = document.createElement('p');
-    // highScoreDiv.style.padding ='10px';
-    // highScoreDiv.innerHTML = `The current high score is ${finalScore}.`; //The current high score is ${highScore.value}//
-    // document.body.appendChild(highScoreDiv);
-
-    const resetButton = document.createElement('button');
-    resetButton.innerText = 'Reset Game';
-    resetButton.className = 'reset-button';
-    document.body.appendChild(resetButton);
-
-    resetButton.addEventListener('click', function(){
-        startMenu.drawHeader();
-        startMenu.startContainer();
-    })
 
     // creates default high score list
 
@@ -114,11 +112,14 @@ const gameOver = (() => {
     // renders list of high scores 
   
     function renderHighScores(highScores) {
+      let scoreBox = document.createElement('div');
+      scoreBox.id = 'high-score-box';
       highScores = sortScores(highScores);
       highScore.placeInStorage(highScores);
       highScores.forEach((element) => render(element.name, element.points));
-    
+     
       function render() {
+
         const box = document.createElement('box');
         const table = document.createElement('table');
         const row = table.insertRow(0);
@@ -129,8 +130,9 @@ const gameOver = (() => {
         }
       table.appendChild(row);
       box.appendChild(table);
-      document.body.appendChild(box);
+      scoreBox.appendChild(box);
       }
+      container.appendChild(scoreBox);
     }
 
     // adds most recent score to high score list
@@ -146,6 +148,15 @@ const gameOver = (() => {
       highScores.forEach((element) => (savedScores = element));
       renderHighScores(highScores);
     }
+
+    resetButton.addEventListener('click', function() {
+      console.log('reset');
+      header.removeChild(headerContent);
+      const box = document.getElementById('high-score-box');
+      container.removeChild(box);
+        startMenu.drawHeader();
+        // startMenu.startContainer();
+    })
   }
 
   return { endScreen };

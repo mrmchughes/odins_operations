@@ -29,14 +29,19 @@ const gameBoard = (() => {
     } else {
       rule = 'Prime numbers';
     }
-
-    const header = document.createElement('div');
-    header.id = 'gameboard-header';
+    
+    const gameboardHeader = document.createElement('div');
+    gameboardHeader.id = 'gameboard-header';
     const titleCard = document.createElement('h2');
     titleCard.id = 'title-card';
     titleCard.innerText = rule;
-    document.body.appendChild(header);
-    header.appendChild(titleCard);
+    document.body.appendChild(gameboardHeader);
+    gameboardHeader.appendChild(titleCard);
+    document.body.appendChild(gameboardHeader);
+
+    const scoreHeader =  document.createElement('div');
+    scoreHeader.id = 'score-header';
+    gameboardHeader.appendChild(scoreHeader);
 
     let board = document.createElement('div');
     board.classList.add('game-board');
