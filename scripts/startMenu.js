@@ -13,6 +13,7 @@ const startMenu = (() => {
 
   const drawHeader = () => {
     const header = document.querySelector('#header');
+    console.log(header);
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
     titleHeader.id = 'title-header';
@@ -22,11 +23,11 @@ const startMenu = (() => {
     instructions.innerText = 'Select Game Options';
     instructions.id = 'instructions';
     header.appendChild(instructions);
-  };
+  // };
 
-  // creates container with play options
+  // // creates container with play options
 
-  const startContainer = () => {
+  // const startContainer = () => {
     const container = document.querySelector('#container');
 
     // creates input for players name
@@ -165,10 +166,10 @@ const startMenu = (() => {
     beginContainer.className = 'begin-container';
     container.appendChild(beginContainer);
 
-    const instructions = document.createElement('div');
-    instructions.className = 'instructions';
-    instructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter or Space or double click.'
-    beginContainer.appendChild(instructions);
+    const playInstructions = document.createElement('div');
+    playInstructions.className = 'instructions';
+    playInstructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter or Space or double click.'
+    beginContainer.appendChild(playInstructions);
 
     const beginGame = document.createElement('button');
     beginGame.innerHTML = 'Begin!';
@@ -180,7 +181,9 @@ const startMenu = (() => {
 
     beginButton.addEventListener('click', function () {
       newName = document.getElementById('userName').value;
-      document.body.innerHTML = '';
+      // const header = document.getElementById('header');
+      header.innerHTML = '';
+      container.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
 
@@ -190,7 +193,9 @@ const startMenu = (() => {
       return newName;
     })
 
-  return { getUserName, drawHeader, startContainer };
+  return { getUserName, drawHeader, 
+    // startContainer 
+  };
 })();
 
 export default startMenu;

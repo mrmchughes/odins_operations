@@ -1,6 +1,7 @@
 import score from './score.js';
 import highScore from './highScore.js';
 import startMenu from './startMenu.js';
+import character from './character.js';
 import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/end-page.css');
 
@@ -8,35 +9,29 @@ const gameOver = (() => {
 
   const endScreen = () => {
 
-    // page clear
-
-    document.body.innerHTML = '';
-
-    // adds Score class for high score list
-
-    class Score {
-      constructor(name, points) {
-        this.name = name;
-        this.points = points;
-      }
-    }
-
     // defintes variables
-
-    let highScores = [];
-    let savedScores = [];
-    //works with set value, getUserName not function?
+  
     const userName = startMenu.getUserName();
     const finalScore = score.getScore();
 
-    // const userName = document.getElementById('userNameInput').value;
-    //const finalScore = score.js -> scoreNumber.value//
-    //const highScore = score.highScore.value?//
+    // page clear and turn off enemy functioning
+
+    const gameboardHeader = document.getElementById('gameboard-header');
+    const board = document.getElementById('game-board');
+    document.body.removeChild(gameboardHeader);
+    document.body.removeChild(board);
+    character.unmountEnemy();
+
+    const header = document.getElementById('header');
+    const container = document.getElementById('container');
+
+    const headerContent = document.createElement('div');
+    headerContent.id = 'header-content';
 
     const gameOverInstructions = document.createElement('p');
     gameOverInstructions.style.padding = '10px';
     gameOverInstructions.innerHTML = 'Sorry, but that is a game over. If you would like to play again, please press the reset button. Otherwise, you can close the game.';
-    document.body.appendChild(gameOverInstructions);
+    headerContent.appendChild(gameOverInstructions);
 
     const finalScoreDiv = document.createElement('p');
     finalScoreDiv.style.padding = '10px';
@@ -51,7 +46,8 @@ const gameOver = (() => {
     const resetButton = document.createElement('button');
     resetButton.innerText = 'Reset Game';
     resetButton.className = 'reset-button';
-    document.body.appendChild(resetButton);
+    resetButton.id = 'reset-button';
+    headerContent.appendChild(resetButton);
 
     resetButton.addEventListener('click', function(){
       startMenu.drawHeader();
@@ -86,8 +82,6 @@ const gameOver = (() => {
     // sorts and returns top 10 scores by changing object to array,
     // sorting the array, and then converting it back to an object of 10 results
 
-    // TODO: sort scores with first score
-
     function sortScores(highScores) {
       let sortableScores = [];
       for (let i = 0; i < highScores.length; i++) {
@@ -114,11 +108,14 @@ const gameOver = (() => {
     // renders list of high scores 
   
     function renderHighScores(highScores) {
+      let scoreBox = document.createElement('div');
+      scoreBox.id = 'high-score-box';
       highScores = sortScores(highScores);
       highScore.placeInStorage(highScores);
       highScores.forEach((element) => render(element.name, element.points));
-    
+     
       function render() {
+
         const box = document.createElement('box');
         const table = document.createElement('table');
         const row = table.insertRow(0);
@@ -129,8 +126,9 @@ const gameOver = (() => {
         }
       table.appendChild(row);
       box.appendChild(table);
-      document.body.appendChild(box);
+      scoreBox.appendChild(box);
       }
+      container.appendChild(scoreBox);
     }
 
     // adds most recent score to high score list
@@ -146,6 +144,14 @@ const gameOver = (() => {
       highScores.forEach((element) => (savedScores = element));
       renderHighScores(highScores);
     }
+
+    resetButton.addEventListener('click', function() {
+      header.removeChild(headerContent);
+      const box = document.getElementById('high-score-box');
+      container.removeChild(box);
+      startMenu.drawHeader();
+      score.resetScore();
+    })
   }
 
   return { endScreen };

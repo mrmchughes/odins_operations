@@ -10,6 +10,7 @@ const nextLevel = (() => {
 
     const practiceArea = answerObject.type;
     const level = answerObject.difficulty.name;
+    console.log(practiceArea, level);
 
     // clears header and board
  
@@ -19,7 +20,7 @@ const nextLevel = (() => {
     document.body.removeChild(board);
 
     // draws new board
-    
+
     gameController.startPlay(practiceArea, level);
 
   }
