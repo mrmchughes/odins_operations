@@ -20,7 +20,7 @@ const character = (() => {
   let playerPosition = spawn();
   const enemy = createAvatar(
     'Enemy', 
-    "url('../images/enemy.gif')", 
+    "url('../images/bomb.png')", 
     enemyPosition
   );
   const player = createAvatar(
