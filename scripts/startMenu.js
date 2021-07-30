@@ -182,6 +182,7 @@ const startMenu = (() => {
 
       // starts intro music
       startMusic.play();
+      startMusic.loop = true;
 
       newName = document.getElementById('userName').value;
       header.innerHTML = '';
