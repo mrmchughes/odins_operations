@@ -47,15 +47,16 @@ const gameOver = (() => {
     // highScoreDiv.style.padding ='10px';
     // highScoreDiv.innerHTML = `The current high score is ${finalScore}.`; //The current high score is ${highScore.value}//
     // document.body.appendChild(highScoreDiv);
-
+    
     const resetButton = document.createElement('button');
     resetButton.innerText = 'Reset Game';
     resetButton.className = 'reset-button';
     document.body.appendChild(resetButton);
 
     resetButton.addEventListener('click', function(){
-        startMenu();
-    })
+      startMenu.drawHeader();
+      startMenu.startContainer();
+    });
 
     // creates default high score list
 
