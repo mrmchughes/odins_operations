@@ -67,6 +67,7 @@ h2 {
 .game-board {
   width: 600px;
   height: 500px;
+  margin-top: 1em;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid hotpink;
@@ -100,11 +101,12 @@ h2 {
   width: 100%;
 }
 
-#display-score {
-  color: whitesmoke;
+#score-header {
+  color: black;
   font-size: 18px;
-  margin-right: 28px;
+  margin-right: 10%;
   float: right;
+  margin-top: -3em;
 }
 
 * {
