@@ -181,7 +181,6 @@ const startMenu = (() => {
     beginButton.addEventListener('click', function () {
 
       // starts intro music
-
       startMusic.play();
 
       newName = document.getElementById('userName').value;

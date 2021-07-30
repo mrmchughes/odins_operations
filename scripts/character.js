@@ -62,7 +62,7 @@ const character = (() => {
   }
 
   // moves selected character in designated direction
-
+  
   function moveRight(character) {
     let user = document.querySelector(`.${character.userName}`);
     if (parseInt(user.style.left) < 500) {
@@ -98,31 +98,38 @@ const character = (() => {
   // player avatar movement directs to moveCharacter module 
   // which determines if answer selection is correct
 
+  let movementSound = new Audio('../audio/movement.wav');
+
   const moveUser = (key, character) => {
     switch (key) {
       case 'ArrowRight':
         moveRight(character);
         (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        movementSound.play();
         return character.position;
       case 'ArrowLeft': 
         moveLeft(character);
         (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        movementSound.play();
         return character.position;
       case 'ArrowUp': 
         moveUp(character);
         (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        movementSound.play();
         return character.position;
       case 'ArrowDown':
         moveDown(character);
         (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
+        movementSound.play();
         return character.position;
     }
   };
 
   // ends game when enemy attack is successful
-
+  let enemySound = new Audio ('../audio/enemy_hit.wav');
   const enemyAttack = (enemyPosition, playerPosition) => {
     if (enemyPosition === playerPosition) {
+      enemySound.play();
       gameOver.endScreen();
     }
   }
