@@ -150,12 +150,11 @@ const gameOver = (() => {
     }
 
     resetButton.addEventListener('click', function() {
-      console.log('reset');
       header.removeChild(headerContent);
       const box = document.getElementById('high-score-box');
       container.removeChild(box);
-        startMenu.drawHeader();
-        // startMenu.startContainer();
+      startMenu.drawHeader();
+      score.resetScore();
     })
   }
 

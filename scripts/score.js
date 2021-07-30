@@ -20,8 +20,14 @@ const score = (() => {
   const getScore = () => {
     return scoreNumber;
   }
+
+  // resets score at end of game
+
+  const resetScore = () => {
+    scoreNumber = 0;
+  }
   
-  return { changeScore, getScore };
+  return { changeScore, getScore, resetScore };
 
 })();
 
