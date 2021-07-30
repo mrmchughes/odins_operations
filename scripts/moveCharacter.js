@@ -51,15 +51,16 @@ const moveCharacter = (() => {
   const selectSquare = (difficulty) => {
 
     let correctAnswer = answerObj.numbersArray[currentPosition].isCorrect;
+    let correctSound = new Audio('../audio/correct_answer.wav');
+    let wrongSound = new Audio('../audio/wrong_answer.wav');
 
     if (correctAnswer) {
       if (!beenSelected) { 
         score.changeScore(difficulty.baseScore);
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'hotpink';
+        correctSound.play();
         changeSelected(currentPosition, answerObj);
-
-      // TODO: add sound for correct choice
       }
     } else {
       if (!beenSelected) {
@@ -69,9 +70,8 @@ const moveCharacter = (() => {
         score.changeScore(-(difficulty.baseScore/2));
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'red';
+        wrongSound.play();
         changeSelected(currentPosition, answerObj);
-
-        // TODO: add sound for incorrect choice
       }
     }
   }

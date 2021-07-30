@@ -36,23 +36,27 @@ const gameOver = (() => {
     const finalScoreDiv = document.createElement('p');
     finalScoreDiv.style.padding = '10px';
     finalScoreDiv.innerHTML = `Congrats, ${userName}, your final score is ${finalScore}.`; //Congrats, ${username}, your final score was ${finalScore.value}.//
-    document.body.appendChild(finalScoreDiv);
+    headerContent.appendChild(finalScoreDiv);
 
-    // const highScoreDiv = document.createElement('p');
-    // highScoreDiv.style.padding ='10px';
-    // highScoreDiv.innerHTML = `The current high score is ${finalScore}.`; //The current high score is ${highScore.value}//
-    // document.body.appendChild(highScoreDiv);
-    
     const resetButton = document.createElement('button');
     resetButton.innerText = 'Reset Game';
     resetButton.className = 'reset-button';
     resetButton.id = 'reset-button';
     headerContent.appendChild(resetButton);
 
-    resetButton.addEventListener('click', function(){
-      startMenu.drawHeader();
-      startMenu.startContainer();
-    });
+    header.appendChild(headerContent);
+    
+    // adds Score class for high score list
+
+    class Score {
+      constructor(name, points) {
+        this.name = name;
+        this.points = points;
+      }
+    }
+
+    let highScores = [];
+    let savedScores = [];
 
     // creates default high score list
 

@@ -6,14 +6,15 @@ cssLoader.load('./stylesheets/start-menu.css');
 const startMenu = (() => {
 
   let newName = 'Player';
-  let startMusic = new Audio('intro_music.wav');
-  startMusic.play();
+  let startMusic = new Audio('../audio/intro_music.wav');
 
   // creates header text
 
   const drawHeader = () => {
+
+    // draws start header
+
     const header = document.querySelector('#header');
-    console.log(header);
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
     titleHeader.id = 'title-header';
@@ -23,11 +24,9 @@ const startMenu = (() => {
     instructions.innerText = 'Select Game Options';
     instructions.id = 'instructions';
     header.appendChild(instructions);
-  // };
 
-  // // creates container with play options
+    // // creates container with play options
 
-  // const startContainer = () => {
     const container = document.querySelector('#container');
 
     // creates input for players name
@@ -180,8 +179,12 @@ const startMenu = (() => {
     const beginButton = document.getElementById('begin');
 
     beginButton.addEventListener('click', function () {
+
+      // starts intro music
+
+      startMusic.play();
+
       newName = document.getElementById('userName').value;
-      // const header = document.getElementById('header');
       header.innerHTML = '';
       container.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
