@@ -45,8 +45,8 @@ const gameController = (() => {
 
   const startPrimes = (difficulty) => {
     const lowerLimit = 1;
-    const upperLimit = difficulty * (Math.floor(Math.random() * 5) + 1);
-    const primesObject = generatePrimes(lowerLimit, upperLimit);
+    const upperLimit = difficulty.maxRange * (Math.floor(Math.random() * 5) + 1);
+    const primesObject = generatePrimes(lowerLimit, upperLimit, difficulty);
     gameBoard.drawBoard(primesObject);
     character.displayEnemy(difficulty.speed);
   };
