@@ -1,4 +1,4 @@
-# Math Game!
+# Odin's Operations!
 A math focused game for The Odin Project July 2021 game jam, inspired by the classic edutainment game Number Munchers! 
 
 The player navigates around the game board solving math problems and building up their high-score, while also dodging the enemy. 
