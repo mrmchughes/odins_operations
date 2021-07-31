@@ -110,28 +110,41 @@ const gameOver = (() => {
   }
 
     // renders list of high scores 
+
+    // const box = document.createElement('box');
+
+    // table.id = 'high-score-table';
   
     function renderHighScores(highScores) {
       let scoreBox = document.createElement('div');
       scoreBox.id = 'high-score-box';
+      const highScoreTitle = document.createElement('h3');
+      highScoreTitle.id = 'high-score-title';
+      highScoreTitle.innerHTML = 'HIGH SCORES';
+      scoreBox.appendChild(highScoreTitle);
+
       highScores = sortScores(highScores);
       highScore.placeInStorage(highScores);
-      highScores.forEach((element) => render(element.name, element.points));
-     
+      highScores.forEach((element) => render(element.points, element.name));
+
+
       function render() {
 
-        const box = document.createElement('box');
         const table = document.createElement('table');
         const row = table.insertRow(0);
+
         for (let i = 0; i < 2; i++) {
           const cell = document.createElement('td');
           cell.innerHTML = arguments[i];
           row.appendChild(cell);
         }
+
       table.appendChild(row);
-      box.appendChild(table);
-      scoreBox.appendChild(box);
+      scoreBox.appendChild(table);
       }
+
+      // scoreBox.appendChild(box);
+
       container.appendChild(scoreBox);
     }
 

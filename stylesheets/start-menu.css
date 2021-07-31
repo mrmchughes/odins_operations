@@ -111,6 +111,7 @@ h1 {
   border: 1px solid hotpink;
   border-bottom: 2px solid rgb(250, 155, 202);
   border-top: 1px solid rgb(250, 155, 202);
+  font-size: larger;
 }
 
 #container {

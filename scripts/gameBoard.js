@@ -1,5 +1,7 @@
 import character from './character.js';
+import checkGameOver from './checkGameOver.js';
 import { cssLoader } from './cssLoader.js';
+import score from './score.js';
 
 const gameBoard = (() => {
 
@@ -39,9 +41,19 @@ const gameBoard = (() => {
     gameboardHeader.appendChild(titleCard);
     document.body.appendChild(gameboardHeader);
 
+    // displays current score
+
     const scoreHeader =  document.createElement('div');
     scoreHeader.id = 'score-header';
     gameboardHeader.appendChild(scoreHeader);
+    score.changeScore(0);
+
+    // displays remaining lives out of 3
+
+    const livesHeader =  document.createElement('div');
+    livesHeader.id = 'lives-header';
+    gameboardHeader.appendChild(livesHeader);
+    checkGameOver.displayLives(0);
 
     let board = document.createElement('div');
     board.classList.add('game-board');
