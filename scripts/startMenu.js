@@ -16,7 +16,7 @@ const startMenu = (() => {
 
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
-    titleHeader.innerText = 'Math Mayhem';
+    titleHeader.innerText = "Odin's Operations";
     titleHeader.id = 'title-header';
     header.appendChild(titleHeader);
 
