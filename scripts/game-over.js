@@ -16,9 +16,7 @@ const gameOver = (() => {
 
     // page clear and turn off enemy functioning
 
-    const gameboardHeader = document.getElementById('gameboard-header');
     const board = document.getElementById('game-board');
-    document.body.removeChild(gameboardHeader);
     document.body.removeChild(board);
     character.unmountEnemy();
 

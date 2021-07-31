@@ -106,27 +106,30 @@ const character = (() => {
 
   let movementSound = new Audio('../audio/movement.wav');
 
+  // when player moves change color of the square and make movement sound
+
+  const movement = (characterPosition, answerObject) => {
+    moveCharacter.moveResponse(characterPosition, answerObject);
+    movementSound.play();
+  }
+
   const moveUser = (key, character) => {
     switch (key) {
       case 'ArrowRight':
         moveRight(character);
-        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
-        movementSound.play();
+        (character.userName === 'Player') ? movement(character.position, answerObject): null;
         return character.position;
       case 'ArrowLeft': 
         moveLeft(character);
-        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
-        movementSound.play();
+        (character.userName === 'Player') ? movement(character.position, answerObject): null;
         return character.position;
       case 'ArrowUp': 
         moveUp(character);
-        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
-        movementSound.play();
+        (character.userName === 'Player') ? movement(character.position, answerObject): null;
         return character.position;
       case 'ArrowDown':
         moveDown(character);
-        (character.userName === 'Player') ? moveCharacter.moveResponse(character.position, answerObject): null;
-        movementSound.play();
+        (character.userName === 'Player') ? movement(character.position, answerObject): null;
         return character.position;
     }
   };

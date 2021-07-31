@@ -180,7 +180,8 @@ const startMenu = (() => {
 
     beginButton.addEventListener('click', function () {
 
-      // starts intro music
+      // starts looping intro music
+      
       startMusic.play();
       startMusic.loop = true;
 
