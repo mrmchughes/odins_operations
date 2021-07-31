@@ -23,7 +23,7 @@ mrmchughes
 # Sources
 Player Avatar by Ray Wolt
 
-Enemy from 
+Enemy from http://pixelartmaker.com/art/cf8800006625ade
 
 Sound effects from https://assetstore.unity.com/packages/audio/sound-fx/retro-sound-effects-22153.
 
