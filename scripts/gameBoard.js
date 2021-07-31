@@ -5,7 +5,8 @@ import score from './score.js';
 
 const gameBoard = (() => {
 
-  //Create a grid square element for an answer object
+  // Create a grid square element for an answer object
+
   const gridSquare = (answer) => {
     let squareEl = document.createElement('div');
     squareEl.classList.add('grid-square');
