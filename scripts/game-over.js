@@ -15,8 +15,9 @@ const gameOver = (() => {
     const finalScore = score.getScore();
 
     // page clear and turn off enemy functioning
-
+    const gameboardHeader = document.getElementById('gameboard-header');
     const board = document.getElementById('game-board');
+    document.body.removeChild(gameboardHeader);
     document.body.removeChild(board);
     character.unmountEnemy();
 
@@ -109,10 +110,6 @@ const gameOver = (() => {
 
     // renders list of high scores 
 
-    // const box = document.createElement('box');
-
-    // table.id = 'high-score-table';
-  
     function renderHighScores(highScores) {
       let scoreBox = document.createElement('div');
       scoreBox.id = 'high-score-box';

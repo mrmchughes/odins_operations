@@ -28,6 +28,12 @@ const gameController = (() => {
     1000,
     30,
   )
+  const fast = createDifficulty(
+    'fast',
+    12,
+    500,
+    30,
+  )
 
   const startMultiples = (difficulty) => {
     const multiplesObj = generateMultiples(
@@ -68,6 +74,8 @@ const gameController = (() => {
       case 'hard':
         difficulty = hard;
         break;
+      case 'fast':
+        difficulty = fast;
     }
         
     switch (practiceArea) {
