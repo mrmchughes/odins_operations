@@ -82,7 +82,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: black;
   font-size: 22px;
   font-family: monospace;
   border: 1px solid hotpink;
@@ -106,6 +106,14 @@ h2 {
   font-size: 18px;
   margin-right: 10%;
   float: right;
+  margin-top: -3em;
+}
+
+#lives-header {
+  color: black;
+  font-size: 18px;
+  margin-left: 10%;
+  float: left;
   margin-top: -3em;
 }
 
@@ -168,12 +176,14 @@ h1 {
 
 #instructions {
   text-align: center;
+  padding-top: 5px;
 }
 
 .user-name-input {
   height: 40px;
   width: 200px;
   margin: 10px;
+  font-size: larger;
   border-radius: 5px;
   border: 1px solid hotpink;
   border-bottom: 2px solid rgb(250, 155, 202);
@@ -278,6 +288,7 @@ h1 {
   width: 40%;
   font-family: arial, sans-serif;
   font-size: larger;
+  font: hotpink;
   justify-content: space-evenly;
   background-color: whitesmoke;
   padding-left: 10%;
@@ -290,8 +301,16 @@ h1 {
   border: 1px solid hotpink;
   border-bottom: 2px solid rgb(250, 155, 202);
   border-top: 1px solid rgb(250, 155, 202);
-
   margin-right: 30%;
   margin-left: 30%;
   font-size: 18px;
+}
+
+#high-score-title {
+  padding-bottom: 1em;
+  padding-top: .8em;
+  color: hotpink;
+  font-weight: bold;
+  text-align: left;
+  text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black;
 }

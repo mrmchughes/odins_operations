@@ -5,8 +5,13 @@ const character = (() => {
 
   // Randomly spawn on an interior square of the board
 
-  const spawn = () => {
-    let spawnSquares = [7, 8, 9, 10, 13, 16, 19, 20, 21, 22];
+  const spawn = (avatar) => {
+    let spawnSquares;
+    if (avatar === 'player') {
+      spawnSquares = [7, 9, 13, 19, 21];
+    } else if (avatar === 'enemy') {
+      spawnSquares = [8, 10, 16, 20, 22];
+    }
     let spawnIndex = Math.floor(Math.random() * spawnSquares.length - 1) + 1;
     let spawnSquare = spawnSquares[spawnIndex];
     return spawnSquare;
@@ -16,11 +21,12 @@ const character = (() => {
 
   const createAvatar = (userName, marker, position) => 
     ({ userName, marker, position });
-  let enemyPosition = spawn();
-  let playerPosition = spawn();
+  let enemyPosition = spawn('enemy');
+  let playerPosition = spawn('player');
+
   const enemy = createAvatar(
     'Enemy', 
-    "url('../images/enemy.gif')", 
+    "url('../images/bomb.png')", 
     enemyPosition
   );
   const player = createAvatar(
