@@ -6,7 +6,11 @@ The player navigates around the game board solving math problems and building up
 When the enemy collides with the player avatar, the player loses a life, and once they have lost all three lives, the game will end.
 
 # Preview
+![image](https://user-images.githubusercontent.com/10659805/127753054-e35ef52b-9dc9-4897-a21e-8be1e9c1354b.png)
+
 ![image](https://user-images.githubusercontent.com/10659805/127752181-0bf3586a-fa60-4eb8-888b-d66c3b30b4bd.png)
+
+![image](https://user-images.githubusercontent.com/10659805/127753071-461ff69d-d459-439b-ad85-1ff02337c204.png)
 
 # Usage
 Press the arrow keys or click with your mouse to move through the board. When a number follows the rule on top, select the number by pressing either Enter, Space or double clicking with your mouse on the square.
