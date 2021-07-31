@@ -167,7 +167,7 @@ const startMenu = (() => {
 
     const playInstructions = document.createElement('div');
     playInstructions.className = 'instructions';
-    playInstructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter or Space or double click.'
+    playInstructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter, Space, or double clicking with your mouse on the square.'
     beginContainer.appendChild(playInstructions);
 
     const beginGame = document.createElement('button');
