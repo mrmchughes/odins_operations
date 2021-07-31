@@ -1,12 +1,15 @@
 import gameOver from './game-over.js';
 
 const checkGameOver = (() => {
+
+  // displays the number of wrong answers allowed
   
   const displayLives = (livesLost) => {
-    let livesRemain = 3 - livesLost;
     let livesHeader = document.getElementById('lives-header');
-    livesHeader.innerText = 'Lives remaining: ' + livesRemain;
+    livesHeader.innerText = `Wrong answers: ${livesLost}/3`;
   }
+
+  // checks to see if 3 wrong answers have been displayed
 
   const checkLives = (answerObject) => {
     
@@ -18,7 +21,6 @@ const checkGameOver = (() => {
         (answerObject.numbersArray[i].selected);
       if (wrongAnswer) {
         livesLost = livesLost + 1;
-        console.log(livesLost);
         displayLives(livesLost);
       }
       if (livesLost >= 3) {

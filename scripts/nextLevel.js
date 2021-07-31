@@ -1,4 +1,5 @@
 import { gameController } from './gameController.js';
+import character from './character.js';
 
 const nextLevel = (() => {
 
@@ -10,7 +11,6 @@ const nextLevel = (() => {
 
     const practiceArea = answerObject.type;
     const level = answerObject.difficulty.name;
-    console.log(practiceArea, level);
 
     // clears header and board
  
@@ -18,6 +18,8 @@ const nextLevel = (() => {
     document.body.removeChild(header);
     const board = document.getElementById('game-board');
     document.body.removeChild(board);
+
+    character.unmountEnemy();
 
     // draws new board
 
