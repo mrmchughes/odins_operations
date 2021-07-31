@@ -58,8 +58,8 @@ h2 {
   color: rgb(1, 14, 15);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 18px;
-  margin-bottom: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
   line-height: 2;
   font-family: arial, sans-serif;
@@ -68,7 +68,7 @@ h2 {
   border-width: 0px;
   border-color: #ccc;
   border-radius: 0%;
-  padding: 30px;
+  padding-bottom: 1em;
 }
 
 .main {
@@ -88,7 +88,7 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 5px;
   text-align: center;
   line-height: 2;
   font-family: arial, sans-serif;
@@ -111,6 +111,7 @@ h1 {
   border: 1px solid hotpink;
   border-bottom: 2px solid rgb(250, 155, 202);
   border-top: 1px solid rgb(250, 155, 202);
+  font-size: larger;
 }
 
 #container {
@@ -133,7 +134,6 @@ h1 {
   align-items: center;
   text-align: center;
   margin: 0;
-  position: absolute;
 }
 
 .practice-area,
@@ -166,9 +166,10 @@ h1 {
 
 .practice-area:hover,
 .begin-button:hover,
-.difficulty-area:hover {
-  background-color: rgb(253, 165, 209);
-}
+.difficulty:hover
+  {
+    background-color: rgb(253, 165, 209);
+  }
 
 #multiples,
 #easy {
@@ -186,4 +187,13 @@ h1 {
 #hard {
   flex: 3;
   align-items: center;
+}
+
+.instructions {
+  font-size: 18px;
+  font-family: arial, sans-serif;
+  text-align: center;
+  padding-bottom: 1em;
+  margin-right: 10%;
+  margin-left: 10%;
 }

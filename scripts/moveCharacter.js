@@ -22,7 +22,6 @@ const moveCharacter = (() => {
     };
 
     answerObject.numbersArray.splice(position, 1, newNumbersArray);
-    console.log(answerObject.type);
     checkGameOver.checkLives(answerObject);
     nextLevel.checkComplete(answerObject);
   }
@@ -49,27 +48,30 @@ const moveCharacter = (() => {
   // changes grid square based on whether correct or incorrect selection is made
   // score will only change if selected is marked as false
 
-  const selectSquare = () => {
+  const selectSquare = (difficulty) => {
 
     let correctAnswer = answerObj.numbersArray[currentPosition].isCorrect;
+    let correctSound = new Audio('../audio/correct_answer.wav');
+    let wrongSound = new Audio('../audio/wrong_answer.wav');
 
     if (correctAnswer) {
       if (!beenSelected) { 
-        score.changeScore(10);
+        score.changeScore(difficulty.baseScore);
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'hotpink';
+        correctSound.play();
         changeSelected(currentPosition, answerObj);
-
-      // TODO: add sound for correct choice
       }
     } else {
       if (!beenSelected) {
-        score.changeScore(-5);
+
+        // incorrect answer results in a reduction by half credit
+
+        score.changeScore(-(difficulty.baseScore/2));
         beenSelected = true;
         selectedGrid.style.backgroundColor = 'red';
+        wrongSound.play();
         changeSelected(currentPosition, answerObj);
-
-        // TODO: add sound for incorrect choice
       }
     }
   }
@@ -78,14 +80,14 @@ const moveCharacter = (() => {
 
   document.addEventListener('keypress', function (event) {
     if (event.key === 'Enter' || event.code === 'Space') {
-      selectSquare();
+      selectSquare(answerObj.difficulty);
     }
   });
 
   // selects correct answer upon double mouseclick
 
   document.addEventListener('dblclick', function () {
-    selectSquare();
+    selectSquare(answerObj.difficulty);
   })
 
   return { moveResponse };

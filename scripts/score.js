@@ -6,30 +6,13 @@ const score = (() => {
   // initializes variables
 
   let scoreNumber = 0;
-  let displayScore;
+
+  // determines new score
 
   const changeScore = (change) => {
-
-    // determines new score
-
     scoreNumber = scoreNumber + change;
-
-    const header =  document.getElementById('gameboard-header');
-
-    // if score is displayed, remove old score
-
-    if (typeof displayScore === 'object') {
-      header.removeChild(displayScore);
-    }
-
-    // displays current score
-
-    displayScore = document.createElement('h4');
-    displayScore.id = 'display-score';
-    displayScore.value = scoreNumber;
-    displayScore.innerText = 'Score: ' + scoreNumber;
-    header.appendChild(displayScore);
-
+    let scoreHeader = document.getElementById('score-header');
+    scoreHeader.innerText = 'Score: ' + scoreNumber;
   }
 
   // returns current score for use in game over screen
@@ -37,8 +20,14 @@ const score = (() => {
   const getScore = () => {
     return scoreNumber;
   }
+
+  // resets score at end of game
+
+  const resetScore = () => {
+    scoreNumber = 0;
+  }
   
-  return { changeScore, getScore };
+  return { changeScore, getScore, resetScore };
 
 })();
 

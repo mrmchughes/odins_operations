@@ -3,11 +3,17 @@ import { gameController } from './gameController.js';
 import { cssLoader } from './cssLoader.js';
 cssLoader.load('./stylesheets/start-menu.css');
 
-const startMenu = () => {
-  
+const startMenu = (() => {
+
+  let newName = 'Player';
+  let startMusic = new Audio('../audio/intro_music.wav');
+
   // creates header text
 
-  const drawHeader = (() => {
+  const drawHeader = () => {
+
+    // draws start header
+
     const header = document.querySelector('#header');
     const titleHeader = document.createElement('h1');
     titleHeader.innerText = 'Math Mayhem';
@@ -18,15 +24,9 @@ const startMenu = () => {
     instructions.innerText = 'Select Game Options';
     instructions.id = 'instructions';
     header.appendChild(instructions);
-  })();
 
-  function pageDirect() {
-    console.log('page direct');
-  }
+    // // creates container with play options
 
-  // creates container with play options
-
-  const startContainer = (() => {
     const container = document.querySelector('#container');
 
     // creates input for players name
@@ -39,7 +39,7 @@ const startMenu = () => {
     userNameInput.type = 'text';
     userNameInput.className = 'user-name-input';
     userNameInput.style.backgroundColor = '#EDE6F2';
-    userNameInput.id = 'userNameInput';
+    userNameInput.id = 'userName';
     container.appendChild(userNameInput);
 
     // creates practice area button container
@@ -165,6 +165,11 @@ const startMenu = () => {
     beginContainer.className = 'begin-container';
     container.appendChild(beginContainer);
 
+    const playInstructions = document.createElement('div');
+    playInstructions.className = 'instructions';
+    playInstructions.innerHTML = 'Press the arrow keys or click to move through the board. When a number follows the rule on top, select the number by pressing either Enter, Space, or double clicking with your mouse on the square.'
+    beginContainer.appendChild(playInstructions);
+
     const beginGame = document.createElement('button');
     beginGame.innerHTML = 'Begin!';
     beginGame.className = 'begin-button';
@@ -172,11 +177,29 @@ const startMenu = () => {
     beginContainer.appendChild(beginGame);
 
     const beginButton = document.getElementById('begin');
+
     beginButton.addEventListener('click', function () {
-      document.body.innerHTML = '';
+
+      // starts looping intro music
+      
+      startMusic.play();
+      startMusic.loop = true;
+
+      newName = document.getElementById('userName').value;
+      header.innerHTML = '';
+      container.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
-  })();
-};
 
-export { startMenu };
+  }
+
+  const getUserName = (() => {
+      return newName;
+    })
+
+  return { getUserName, drawHeader, 
+    // startContainer 
+  };
+})();
+
+export default startMenu;

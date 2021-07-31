@@ -1,4 +1,6 @@
 import { gameController } from './gameController.js';
+import character from './character.js';
+import score from './score.js';
 
 const nextLevel = (() => {
 
@@ -9,19 +11,33 @@ const nextLevel = (() => {
     // sets difficulty and practice area to the same as previously selected;
 
     const practiceArea = answerObject.type;
-    const level = answerObject.difficulty.name;
+    let level = answerObject.difficulty.name;
 
     // clears header and board
-
+ 
     const header = document.getElementById('gameboard-header');
-    const titleCard = document.getElementById('title-card');
-    header.removeChild(titleCard);
-
+    document.body.removeChild(header);
     const board = document.getElementById('game-board');
     document.body.removeChild(board);
 
+    character.unmountEnemy();
+
+    // increases difficulty of game based on score
+
+    let currentScore = score.getScore();
+
+    if (currentScore > 2000) {
+      level = 'fast';
+    } else if (currentScore > 1000) {
+      level = 'hard';
+    } else if (currentScore > 500) {
+      if (level === 'easy') {
+        level = 'intermediate';
+      } 
+    }
+
     // draws new board
-    
+
     gameController.startPlay(practiceArea, level);
 
   }

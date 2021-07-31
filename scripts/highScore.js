@@ -56,7 +56,7 @@ const highScore = (() => {
         retrieveStorage(highScores);
       }
     } else {
-      alert('List can not be saved to device.');
+      console.log('High scores can not be saved to device.');
     }
   }
 

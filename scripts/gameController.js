@@ -7,23 +7,32 @@ import character from './character.js';
 const gameController = (() => {
 
   const createDifficulty = 
-   (name, maxRange, speed) => 
-   ({ name, maxRange, speed });
+   (name, maxRange, speed, baseScore) => 
+   ({ name, maxRange, speed, baseScore });
 
   const easy = createDifficulty(
     'easy', 
     5, 
     5000,
+    10,
   );
   const intermediate = createDifficulty(
     'intermediate', 
     10, 
     3000,
+    20,
   );
   const hard = createDifficulty(
     'hard',
     12,
     1000,
+    30,
+  )
+  const fast = createDifficulty(
+    'fast',
+    12,
+    500,
+    30,
   )
 
   const startMultiples = (difficulty) => {
@@ -35,7 +44,7 @@ const gameController = (() => {
   };
 
   const startFactors = (difficulty) => {
-    const factorsObj = generateFactors(difficulty.maxRange);
+    const factorsObj = generateFactors(difficulty);
     gameBoard.drawBoard(factorsObj);
     character.displayEnemy(difficulty.speed);
   };
@@ -43,7 +52,7 @@ const gameController = (() => {
   const startPrimes = (difficulty) => {
     const lowerLimit = 1;
     const upperLimit = difficulty.maxRange * (Math.floor(Math.random() * 5) + 1);
-    const primesObject = generatePrimes(lowerLimit, upperLimit);
+    const primesObject = generatePrimes(lowerLimit, upperLimit, difficulty);
     gameBoard.drawBoard(primesObject);
     character.displayEnemy(difficulty.speed);
   };
@@ -51,6 +60,8 @@ const gameController = (() => {
   // loads game board for play
 
   const startPlay = (practiceArea, level) => {
+
+    practiceArea = practiceArea.toLowerCase();
 
     let difficulty;
     switch (level) {
@@ -63,6 +74,8 @@ const gameController = (() => {
       case 'hard':
         difficulty = hard;
         break;
+      case 'fast':
+        difficulty = fast;
     }
         
     switch (practiceArea) {

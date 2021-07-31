@@ -1,4 +1,4 @@
-const generateFactors = (maxMultiplier) => {
+const generateFactors = (difficulty) => {
 
   // initiates variables
 
@@ -6,6 +6,7 @@ const generateFactors = (maxMultiplier) => {
   let answer;
   let isFactor;
   let numbersArray = [];
+  const maxMultiplier = difficulty.maxRange;
 
   // determines base factor
 
@@ -61,7 +62,7 @@ const generateFactors = (maxMultiplier) => {
     numbersArray.push(numObject);
   }
 
-  return { type, base, numbersArray };
+  return { type, base, numbersArray, difficulty };
 };
 
 export { generateFactors };
