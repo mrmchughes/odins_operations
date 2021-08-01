@@ -6,7 +6,7 @@ cssLoader.load('./stylesheets/start-menu.css');
 const startMenu = (() => {
 
   let newName = 'Player';
-  let startMusic = new Audio('../audio/intro_music.wav');
+  let startMusic = new Audio('audio/intro_music.wav');
 
   // creates header text
 
