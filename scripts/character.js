@@ -24,14 +24,17 @@ const character = (() => {
   let enemyPosition = spawn('enemy');
   let playerPosition = spawn('player');
 
+  const playerAvatar = document.getElementById('muncherAvatar').getAttribute('src');
+  const enemyAvatar = document.getElementById('bomb').getAttribute('src');
+
   const enemy = createAvatar(
     'Enemy', 
-    "url('images/bomb.png')", 
+    `url(${enemyAvatar})`, 
     enemyPosition
   );
   const player = createAvatar(
     'Player', 
-    "url('images/goldenmuncher_100.gif')", 
+    `url(${playerAvatar})`, 
     playerPosition
   );
   
@@ -39,12 +42,15 @@ const character = (() => {
 
   const placeAvatar = (character) => {
 
+    console.log(character.marker);
+
     let muncher = document.createElement('div');
     muncher.classList.add(character.userName);
     muncher.style.position = 'absolute';
     muncher.style.left = (character.position % 6) * 100 + 'px';
     muncher.style.top = Math.floor(character.position / 6) * 100 + 'px';
     muncher.style.backgroundImage = character.marker;
+    console.log(muncher.style);
     return muncher;
   };
 
@@ -104,7 +110,8 @@ const character = (() => {
   // player avatar movement directs to moveCharacter module 
   // which determines if answer selection is correct
 
-  let movementSound = new Audio('audio/movement.wav');
+  const movementSound = document.getElementById('movement');
+  console.log(movementSound);
 
   // when player moves change color of the square and make movement sound
 
@@ -135,7 +142,9 @@ const character = (() => {
   };
 
   // ends game when enemy attack is successful
-  let enemySound = new Audio ('audio/enemy_hit.wav');
+
+  const enemySound = document.getElementById('enemyHit');
+
   const enemyAttack = (enemyPosition, playerPosition) => {
     if (enemyPosition === playerPosition) {
       enemySound.play();
