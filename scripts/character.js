@@ -104,7 +104,7 @@ const character = (() => {
   // player avatar movement directs to moveCharacter module 
   // which determines if answer selection is correct
 
-  let movementSound = new Audio('audio/movement.wav');
+  const movementSound = document.getElementById('movement');
 
   // when player moves change color of the square and make movement sound
 
@@ -135,7 +135,7 @@ const character = (() => {
   };
 
   // ends game when enemy attack is successful
-  let enemySound = new Audio ('audio/enemy_hit.wav');
+  const enemySound = document.getElementById('enemyHit');
   const enemyAttack = (enemyPosition, playerPosition) => {
     if (enemyPosition === playerPosition) {
       enemySound.play();
