@@ -6,8 +6,7 @@ cssLoader.load('./stylesheets/start-menu.css');
 const startMenu = (() => {
 
   let newName = 'Player';
-  // let startMusic = new Audio('audio/intro_music.wav');
-  const startMusic = document.getElementById('introMusic');
+  const introMusic = document.getElementById('introMusic');
 
   // creates header text
 
@@ -183,8 +182,8 @@ const startMenu = (() => {
 
       // starts looping intro music
       
-      startMusic.play();
-      startMusic.loop = true;
+      introMusic.play();
+      introMusic.loop = true;
 
       newName = document.getElementById('userName').value;
       header.innerHTML = '';
