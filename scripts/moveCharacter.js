@@ -51,6 +51,7 @@ const moveCharacter = (() => {
   const selectSquare = (difficulty) => {
 
     let correctAnswer = answerObj.numbersArray[currentPosition].isCorrect;
+
     const correctSound = document.getElementById('correctAnswer');
     const wrongSound = document.getElementById('wrongAnswer');
 

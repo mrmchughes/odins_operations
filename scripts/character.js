@@ -135,7 +135,9 @@ const character = (() => {
   };
 
   // ends game when enemy attack is successful
+
   const enemySound = document.getElementById('enemyHit');
+
   const enemyAttack = (enemyPosition, playerPosition) => {
     if (enemyPosition === playerPosition) {
       enemySound.play();
