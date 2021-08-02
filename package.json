@@ -1,5 +1,25 @@
 {
   "devDependencies": {
     "eslint": "^7.31.0"
+  },
+  "name": "firebase",
+  "description": "A math focused game for The Odin Project July 2021 game jam, inspired by the classic edutainment game Number Munchers!",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnicolorPanda/odins-operations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechnicolorPanda/odins-operations/issues"
+  },
+  "homepage": "https://github.com/TechnicolorPanda/odins-operations#readme",
+  "dependencies": {
+    "firebase": "^8.8.1"
   }
 }

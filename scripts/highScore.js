@@ -1,4 +1,20 @@
+
+import firebaseConfig from firebaseConfix.js;
+import firebase from '../node_modules/firebase/app';
+import '../node_modules/firebase/firestore';
+
 const highScore = (() => {
+
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true,
+  };
+  firestore.settings(settings);
+
+  var ref = firebase.database().ref();                           
+  ref.on("value", function(snapshot){
+    output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+  });
 
   // if user is new on this device, create local storage on this device
 
@@ -17,6 +33,10 @@ const highScore = (() => {
     
   const placeInStorage = function (highScores) {
     localStorage.setItem('savedScores', JSON.stringify(highScores));
+    database.collection('high-scores').doc(name).set(highScores).then(() => {
+      console.log("Document successfully written!");
+    });
+
   };
 
   // tests local storage and decides what to do based on those results
