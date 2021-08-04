@@ -32,6 +32,8 @@ const gameBoard = (() => {
     } else {
       rule = 'Prime numbers';
     }
+
+    // creates rule to be followed in game
     
     const gameboardHeader = document.createElement('div');
     gameboardHeader.id = 'gameboard-header';
@@ -70,7 +72,8 @@ const gameBoard = (() => {
       board.appendChild(square);
     });
 
-    //Append the character to the board
+    // Append the character to the board
+    
     board.appendChild(character.createMuncher(answerObj));
     board.appendChild(character.createEnemy());
 

@@ -42,8 +42,6 @@ const character = (() => {
 
   const placeAvatar = (character) => {
 
-    console.log(character.marker);
-
     let muncher = document.createElement('div');
     muncher.classList.add(character.userName);
     muncher.style.position = 'absolute';
@@ -111,7 +109,6 @@ const character = (() => {
   // which determines if answer selection is correct
 
   const movementSound = document.getElementById('movement');
-  console.log(movementSound);
 
   // when player moves change color of the square and make movement sound
 

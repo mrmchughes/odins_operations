@@ -28,12 +28,17 @@ const gameController = (() => {
     1000,
     30,
   )
+
+  // fast difficulty can only be reached upon attaining a specified score
+
   const fast = createDifficulty(
     'fast',
     12,
     500,
     30,
   )
+
+  // draws board depending on level and practice area selected
 
   const startMultiples = (difficulty) => {
     const multiplesObj = generateMultiples(
@@ -61,9 +66,8 @@ const gameController = (() => {
 
   const startPlay = (practiceArea, level) => {
 
-    practiceArea = practiceArea.toLowerCase();
-
     let difficulty;
+
     switch (level) {
       case 'easy':
         difficulty = easy;
@@ -77,6 +81,8 @@ const gameController = (() => {
       case 'fast':
         difficulty = fast;
     }
+
+    practiceArea = practiceArea.toLowerCase();
         
     switch (practiceArea) {
       case 'factors':
