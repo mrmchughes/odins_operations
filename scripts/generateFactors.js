@@ -1,3 +1,4 @@
+
 const generateFactors = (difficulty) => {
 
   // initiates variables

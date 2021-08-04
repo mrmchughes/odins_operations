@@ -18,19 +18,26 @@ let generatePrimes = (lowerBound, upperBound, difficulty) => {
     }
   };
   //Create an array of objects with prime numbers
+
   let numbersArray = [];
   let answer;
+
   let i = 0;
   while (i < 30) {
+    
     let diceRoll = Math.random();
-    //40 percent of the time generate a prime number
+
+    // 40 percent of the time generate a prime number
+
     if (diceRoll < 0.4) {
       do {
         answer = Math.floor(
           Math.random() * (upperBound - lowerBound + 1) + lowerBound
         );
       } while (!isPrime(answer));
-      //Else return a non-prime number within the number range
+
+      // Else return a non-prime number within the number range
+
     } else {
       do {
         answer = Math.floor(
@@ -38,9 +45,13 @@ let generatePrimes = (lowerBound, upperBound, difficulty) => {
         );
       } while (isPrime(answer));
     }
-    //Check if the answer is prime
+
+    // Check if the answer is prime
+
     let isCorrect = isPrime(answer);
-    //Store the answer in an object
+
+    // Store the answer in an object
+
     let numObject = { answer, isCorrect, selected: false };
     numbersArray.push(numObject);
     i++;
