@@ -190,7 +190,6 @@ const startMenu = (() => {
       container.innerHTML = '';
       gameController.startPlay(practiceArea, difficulty);
     });
-
   }
 
   const getUserName = (() => {

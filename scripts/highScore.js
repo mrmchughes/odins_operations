@@ -1,3 +1,4 @@
+
 const highScore = (() => {
 
   // if user is new on this device, create local storage on this device
